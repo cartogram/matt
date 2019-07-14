@@ -1,0 +1,14 @@
+.DS_Store
+.history/
+*.log
+lib
+node_modules
+coverage
+example
+EXAMPLE
+tmp
+v1
+.yalc
+yalc.lock
+pulls
+/~
