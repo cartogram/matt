@@ -1,5 +1,8 @@
 import React from 'react';
 import {useSpring} from 'react-spring';
+import {title, twoLiner, posts} from '../../content';
+import List from '../List';
+import H2 from '../H2';
 import {
   CircleOne,
   CircleTwo,
@@ -24,6 +27,9 @@ const trans3 = (x: number, y: number) =>
   `translate3d(${x / 4 - 300}px,${y / 4 + 200}px,0)`;
 
 const trans4 = (x: number, y: number) =>
+  `translate3d(${x / 30 - 300}px,${y / 30 - 300}px,0)`;
+
+const trans5 = (x: number, y: number) =>
   `translate3d(${x / 30}px,${y / 30}px,0)`;
 
 function Scene() {
@@ -31,8 +37,6 @@ function Scene() {
     xy: [0, 0],
     config: {mass: 10, tension: 550, friction: 140},
   }));
-
-  const title = 'Matt Seccafien';
 
   return (
     <Container
@@ -60,7 +64,12 @@ function Scene() {
         svg={<CircleSvg size={35} fill={Fill.DiagonalLines} filter="none" />}
       />
       <CircleFour animationProps={props} transform={trans4}>
-        {title}
+        <H2>
+          {title} {twoLiner}
+        </H2>
+      </CircleFour>
+      <CircleFour animationProps={props} transform={trans5}>
+        <List items={posts} />
       </CircleFour>
     </Container>
   );

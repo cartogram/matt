@@ -33,12 +33,13 @@ const theme = {
   typography: {
     fontFamilyMono: "'ocr-b-std', Inconsolata, menlo, monospace",
     fontFamilySerif: "'kepler-std', times, serif",
+    fontFamilySans: 'sans-serif',
     fontSize: {
       h1: {
         base: emCalc(16),
       },
       h2: {
-        base: emCalc(13),
+        base: emCalc(14),
       },
       h3: {
         base: emCalc(15),
