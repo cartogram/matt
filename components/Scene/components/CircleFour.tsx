@@ -19,8 +19,8 @@ const CircleFour = styled(Animated)`
   bottom: 0;
   right: 0%;
   will-change: transform;
-  height: 40vh;
-  width: 40vw;
+  width: 100vw;
+  padding: 0 25vw;
   z-index: 1;
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};
 `;

@@ -22,6 +22,7 @@ const CircleOne = styled(Animated)`
   height: 60vw;
   max-width: 100ch;
   max-height: 100ch;
+  transform-origin: 50% 50%;
   animation: ${enter} ${theme.timing[3]} ${theme.easing.easeInOutQuint};
 `;
 

@@ -33,19 +33,26 @@ const theme = {
   typography: {
     fontFamilyMono: "'ocr-b-std', Inconsolata, menlo, monospace",
     fontFamilySerif: "'kepler-std', times, serif",
-    fontFamilySans: 'sans-serif',
+    fontFamilySans: {
+      name: 'halyard-text, sans-serif',
+      weight: 300,
+    },
     fontSize: {
       h1: {
         base: emCalc(16),
       },
       h2: {
-        base: emCalc(14),
+        base: emCalc(24),
       },
       h3: {
         base: emCalc(15),
       },
       h4: {
         base: emCalc(12),
+      },
+      // eslint-disable-next-line id-length
+      p: {
+        base: emCalc(24),
       },
     },
   },

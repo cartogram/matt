@@ -1,4 +1,7 @@
-export const title = 'Matthew Seccafien';
+export const title = 'Matt Seccafien';
+export const firstName = 'Matt';
+export const lastName = 'Seccafien';
+
 export const posts = [
   {
     title: 'Fondfolio',
@@ -40,10 +43,9 @@ export const oneLiner = `
   Canadian front-end developer and designer`;
 
 export const currently = `
-  Currently working at Shopify in Toronto.`;
+  Currently working at Shopify.`;
 
-export const twoLiner = `
-  Builder of things, usually for screens, that are tailored, minimally designed and make good use of Javascript. Currently working at Shopify in Toronto.`;
+export const twoLiner = `Toronto-based developer, lapsed designer, builder of interfaces, usually for screens, sometimes command lines. ${currently}`;
 
 export const links = [
   {

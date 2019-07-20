@@ -42,7 +42,8 @@
             "plugin:shopify/jest"
         ],
         "rules": {
-            "no-console": "off"
+            "no-console": "off",
+            "shopify/jsx-no-hardcoded-content": "off"
         }
     }
 }
