@@ -12,6 +12,7 @@ const Container = styled.div`
     ${fill};
     content: '';
     z-index: 1;
+    pointer-events: none;
     mix-blend-mode: overlay;
     background: ${background};
   }

@@ -1,8 +1,15 @@
 import React from 'react';
-import {Scene} from '../components';
+import {Scene, Header, Content} from '../components';
 
 function Home() {
-  return <Scene />;
+  return (
+    <>
+      <Header />
+      <Scene>
+        <Content />
+      </Scene>
+    </>
+  );
 }
 
 export default Home;

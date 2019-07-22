@@ -1,6 +1,7 @@
+import React from 'react';
 import styled, {keyframes} from 'styled-components';
+import {animated} from 'react-spring';
 import {theme} from '../../../styles';
-import Animated from './Animated';
 
 const enter = keyframes`
   from {
@@ -13,7 +14,6 @@ const enter = keyframes`
 `;
 
 const CircleTwo = styled(Animated)`
-  opacity: 0;
   position: absolute;
   left: 30%;
   will-change: transform;
@@ -21,4 +21,16 @@ const CircleTwo = styled(Animated)`
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};
 `;
 
+function Animated({transform, className, svg}: any) {
+  return (
+    <animated.svg
+      className={className}
+      transform={transform}
+      version="1.1"
+      viewBox="0 0 400 400"
+    >
+      {svg}
+    </animated.svg>
+  );
+}
 export default CircleTwo;

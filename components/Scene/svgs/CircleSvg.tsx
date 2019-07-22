@@ -29,7 +29,7 @@ function CircleSvg({size, fill, filter}: Props) {
           height={10}
           width={10}
           fill="transparent"
-          stroke="blue"
+          stroke="black"
           strokeWidth={0.4}
           complement
         />
@@ -41,7 +41,7 @@ function CircleSvg({size, fill, filter}: Props) {
           id={Fill.DiagonalLines}
           height={8}
           width={8}
-          stroke="red"
+          stroke="black"
           strokeWidth={0.2}
           orientation={['diagonal']}
         />
@@ -57,8 +57,12 @@ function CircleSvg({size, fill, filter}: Props) {
           x2="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor={theme.colors.mint} stopOpacity="1" />
-          <stop offset="100%" stopColor={theme.colors.mint} stopOpacity="0" />
+          <stop offset="0%" stopColor={theme.colors.grey[0]} stopOpacity="1" />
+          <stop
+            offset="100%"
+            stopColor={theme.colors.grey[0]}
+            stopOpacity="0"
+          />
         </linearGradient>
       );
       break;

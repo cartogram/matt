@@ -5,3 +5,5 @@ export {default as H3} from './H3';
 export {default as H4} from './H4';
 export {default as Text} from './Text';
 export {default as A} from './A';
+export {default as Content} from './Content';
+export {default as Header} from './Header';

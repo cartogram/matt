@@ -6,19 +6,25 @@ const GlobalStyle = createGlobalStyle`
   html,
   body,
   body > div {
-    overflow: hidden;
     height: 100%;
+    overflow: hidden;
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${theme.typography.fontFamilySerif};
-    font-weight: 400;
+    font-family: ${theme.typography.fontFamilySerif.name};
+    font-weight: ${theme.typography.fontFamilySerif.weight};
     line-height: 1.6;
   }
+
   *,
   *:before,
   *:after {
     ${reset}
+  }
+
+  @font-face {
+    font-family: 'NeueMachina';
+    src: url('/static/fonts/NeueMachina-Light.otf');
   }
 `;
 

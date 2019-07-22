@@ -32,7 +32,10 @@ const theme = {
   primaryColor: colors.black,
   typography: {
     fontFamilyMono: "'ocr-b-std', Inconsolata, menlo, monospace",
-    fontFamilySerif: "'kepler-std', times, serif",
+    fontFamilySerif: {
+      name: "'kepler-std', times, serif",
+      weight: 300,
+    },
     fontFamilySans: {
       name: 'halyard-text, sans-serif',
       weight: 300,
