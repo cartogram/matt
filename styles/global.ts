@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${theme.typography.fontFamilySerif.name};
-    font-weight: ${theme.typography.fontFamilySerif.weight};
+    font-family: ${theme.typography.fontFamilySans.name};
+    font-weight: ${theme.typography.fontFamilySans.weight};
     line-height: 1.6;
   }
 
@@ -23,8 +23,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face {
-    font-family: 'NeueMachina';
-    src: url('/static/fonts/NeueMachina-Light.otf');
+    font-family: 'lausanna';
+    src: url('/static/fonts/Lausanne-300.otf');
   }
 `;
 

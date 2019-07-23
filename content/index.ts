@@ -2,72 +2,97 @@ export const title = 'Matt Seccafien';
 export const firstName = 'Matt';
 export const lastName = 'Seccafien';
 
-export const posts = [
+interface Post {
+  title: string;
+  tags?: Tag[];
+  date: string;
+  permalink?: string;
+  label?: string;
+  onGoing?: boolean;
+}
+
+enum Tag {
+  Project = 'project',
+  Writing = 'writing',
+  Owner = 'my thing',
+}
+
+export const posts: Post[] = [
   {
     title: 'Fondfolio',
-    tags: ['project'],
-    date: '2016-09-16',
+    tags: [Tag.Project],
+    date: '2017-04-01',
+    permalink: 'https://fondfolio.com',
+    onGoing: true,
   },
-  {
-    title: 'Lauren Wickware',
-    tags: ['project'],
-    date: '2016-09-16',
-  },
-  // {
-  //   title: 'Embracing Constraint with CSS Modules',
-  //   tags: ['writing'],
-  //   permalink:
-  //     'https://medium.com/cartogram/embracing-constraint-with-css-modules-89ba3bbcb95d',
-  //   date: '2016-09-16',
-  // },
   {
     title: 'Lamas',
-    tags: ['project'],
-    date: '2016-09-16',
+    tags: [Tag.Project],
+    date: '2017-01-19',
+    permalink: 'http://lamas.us/',
+  },
+
+  {
+    title: 'Embracing Constraint with CSS Modules',
+    tags: [Tag.Writing],
+    permalink:
+      'https://medium.com/cartogram/embracing-constraint-with-css-modules-89ba3bbcb95d',
+    date: '2016-09-20',
   },
   {
     title: 'Consciously Coupling',
-    tags: ['project'],
-    date: '2016-09-16',
+    tags: [Tag.Project],
+    date: '2016-10-19',
+    permalink: 'http://consciouslycoupling.com',
   },
-  // {
-  //   title: 'Using Arrays as CSS config and Immutable Reverse',
-  //   tags: ['writing'],
-  //   permalink:
-  //     'https://medium.com/@crtogrm/quick-tip-using-arrays-as-css-config-and-immutable-reverse-4bad11d8768',
-  //   date: '2016-09-16',
-  // },
+  {
+    title: 'Using Arrays as CSS config and Immutable Reverse',
+    tags: [Tag.Writing],
+    permalink:
+      'https://medium.com/@crtogrm/quick-tip-using-arrays-as-css-config-and-immutable-reverse-4bad11d8768',
+    date: '2016-12-22',
+  },
+  {
+    title: 'Lauren Wickware',
+    tags: [Tag.Project],
+    date: '2015-01-16',
+    permalink: 'http://laurenwickware.com',
+  },
 ];
+
+export const cvLink = '';
 
 export const oneLiner = `
   Canadian front-end developer and designer`;
 
 export const currently = `
-  Currently working at Shopify.`;
+  Currently working at Shopify`;
 
-export const twoLiner = `Toronto-based developer, lapsed designer, builder of interfaces, usually for screens, sometimes command lines. ${currently}`;
+export const twoLiner = `Toronto-based developer, lapsed designer, builder of interfaces, usually for screens, sometimes command lines.`;
 
 export const links = [
-  {
-    title: 'projects',
-    permalink: 'http://cartogram.ca',
-  },
   // {
-  //   title: 'github',
-  //   permalink: 'https://github.com/cartogram',
-  // },
-  // {
-  //   title: 'twitter',
-  //   permalink: 'https://twitter.com/crtogrm',
-  //   external: true,
+  //   title: 'projects',
+  //   permalink: 'http://cartogram.ca',
   // },
   {
-    title: 'writing',
-    permalink: 'https://www.medium.com/crtogrm',
+    title: 'Download my CV',
+    permalink: 'static/cv.pdf',
+    label: 'pdf',
   },
   {
-    title: 'email',
+    title: 'Look at my code',
+    permalink: 'https://github.com/cartogram',
+    label: 'github',
+  },
+  // {
+  //   title: 'writing',
+  //   permalink: 'https://www.medium.com/crtogrm',
+  // },
+  {
+    title: 'Get in touch',
     permalink: 'mailto:mseccafien@gmail.com',
+    label: 'email',
   },
   // {
   //   title: 'tel',
