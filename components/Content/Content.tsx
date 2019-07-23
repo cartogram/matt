@@ -1,11 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {twoLiner, title, links, posts} from '../../content';
 import Text from '../Text';
 import H4 from '../H4';
 import H1 from '../H1';
 import List from '../List';
 import A from '../A';
+import {theme} from '../../styles';
+
+const enter = keyframes`
+
+
+  to {
+    transform: translate(0, 0%);
+    opacity: 1;
+  }
+`;
 
 const StyledContent = styled.section`
   width: 100%;
@@ -36,6 +46,8 @@ interface BlockProps {
 }
 
 const Block = styled.div<BlockProps>`
+  opacity: 0;
+  transform: translate(0, 60%);
   flex: 100% 0 1;
   padding: 0 ${props => props.theme.emSizes[2]}
     ${props => props.theme.emSizes[6]};
@@ -45,6 +57,9 @@ const Block = styled.div<BlockProps>`
     min-width: 600px;
     flex: ${props => (props.offSet ? `${(1 / 2) * 100}% 0 1` : 'auto')};
   }
+  position: relative;
+  animation: ${enter} ${theme.timing[4]} ${theme.timing[1]}
+    ${theme.easing.easeInOutQuint} forwards;
 `;
 
 function Content() {
