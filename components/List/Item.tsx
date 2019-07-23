@@ -5,50 +5,85 @@ import H4 from '../H4';
 import H2 from '../H2';
 import A from '../A';
 
+const monthNames = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 const StyledItem = styled.li`
   list-style: none;
   display: flex;
-  align-items: baseline;
-  justify-content: flex-end;
-  width: 100%;
-  padding-right: ${props => props.theme.emSizes[0]};
 
-  &:after {
-    background: black;
-    top: -3px;
-    position: relative;
-    height: 1px;
-    flex-grow: 2;
-    content: '';
-  }
-
-  > :last-child {
-    order: 1;
+  @media (min-width: 700px) {
+    flex-direction: row;
   }
 `;
 
 interface Item {
   title: string;
   tags?: string[];
+  date?: string;
+  label?: string;
+  permalink?: string;
+  onGoing?: boolean;
 }
 
 interface Props {
   item: Item;
 }
 
-function Item({item: {title, tags}}: Props) {
-  const tagsMarkup =
-    tags && tags.length ? tags.map(tag => <H4 key={tag}>{tag}</H4>) : null;
+function Item({item: {title, tags, date, permalink, onGoing, label}}: Props) {
+  const formattedDate = date ? formatDate(date) : '';
+  const formattedOngoing = onGoing ? '→Now' : '';
+  const formattedTags = tags ? tags : [];
+  const tagsMarkup = (
+    <H4>
+      {formattedTags.join(', ')}
+      {formattedDate}
+      {formattedOngoing}
+    </H4>
+  );
+
+  const labelMarkup = label && <H4>{label}</H4>;
+  const textMarkup = <H2>{title}</H2>;
+
+  const linkMarkup = permalink ? (
+    <A href={permalink} target="_blank">
+      {textMarkup}
+    </A>
+  ) : (
+    <Link href={`/item?title=${title}`}>
+      <A>{textMarkup}</A>
+    </Link>
+  );
   return (
     <StyledItem>
-      <Link href={`/item?title=${title}`}>
-        <A>
-          <H2>{title}</H2>
-        </A>
-      </Link>
+      {linkMarkup}
       {tagsMarkup}
+      {labelMarkup}
     </StyledItem>
   );
+}
+
+function formatDate(initialDate: string) {
+  const date = new Date(initialDate);
+  const month = monthNames[date.getMonth()];
+  const year = date
+    .getFullYear()
+    .toString()
+    .slice(-2);
+
+  return `—${month} ${year}`;
 }
 
 export default Item;

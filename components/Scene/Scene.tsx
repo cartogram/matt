@@ -5,7 +5,8 @@ import {CircleOne, CircleTwo, CircleThree, Container} from './components';
 import {CircleSvg, Fill} from './svgs';
 
 const StyledScene = styled.div`
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100%;
 `;
 

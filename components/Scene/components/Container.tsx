@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import {fillFlex, fill} from '../../../styles';
 
-function background(props: any) {
-  const {images, siteBackgroundColor} = props.theme;
-  return `url(${images.background}) ${siteBackgroundColor}`;
-}
-
 const Container = styled.div`
   ${fillFlex}
   &:before {
@@ -14,7 +9,7 @@ const Container = styled.div`
     z-index: 1;
     pointer-events: none;
     mix-blend-mode: overlay;
-    background: ${background};
+    background: ${props => props.theme.siteBackground};
   }
 `;
 

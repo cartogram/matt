@@ -1,3 +1,4 @@
+import {DefaultTheme} from 'styled-components';
 import {emBase, emCalc, remCalc} from './utils';
 
 const colors = {
@@ -17,18 +18,35 @@ const timing = Array.from(
 );
 
 const easing = {
-  easeInOutQuint: `cubic-bezier(0.86, 0, 0.07, 1);`,
+  easeInOutQuint: `cubic-bezier(0.86, 0, 0.07, 1)`,
 };
 
 const images = {
   background: '/static/images/noise.png',
 };
-const sizes = [4, 8, 12, 16, 24, 32, 40];
+
+const baseSize = 8;
+
+const halfSizes = Array.from(
+  {length: 4},
+  (_, index) => (index + 1) * (baseSize / 2),
+);
+
+const fullSizes = Array.from(
+  {length: 20},
+  (_, index) => (index + 1) * baseSize,
+);
+
+const sizes = [...halfSizes, ...fullSizes];
+
 const emSizes = sizes.map(emCalc);
 const remSizes = sizes.map(remCalc);
 
-const theme = {
-  siteBackgroundColor: colors.grey[0],
+const siteBackgroundColor = colors.grey[0];
+
+const theme: DefaultTheme = {
+  siteBackgroundColor,
+  siteBackground: `url(${images.background}) ${siteBackgroundColor}`,
   primaryColor: colors.black,
   typography: {
     fontFamilyMono: "'ocr-b-std', Inconsolata, menlo, monospace",
@@ -37,25 +55,25 @@ const theme = {
       weight: 300,
     },
     fontFamilySans: {
-      name: 'halyard-text, sans-serif',
+      name: 'lausanna',
+      // name: 'halyard-text, sans-serif',
       weight: 300,
     },
     fontSize: {
       h1: {
-        base: emCalc(16),
+        base: emCalc(30),
       },
       h2: {
-        base: emCalc(24),
+        base: emCalc(30),
       },
       h3: {
         base: emCalc(15),
       },
       h4: {
-        base: emCalc(12),
+        base: emCalc(18),
       },
-      // eslint-disable-next-line id-length
       p: {
-        base: emCalc(24),
+        base: emCalc(30),
       },
     },
   },

@@ -1,10 +1,9 @@
 import React from 'react';
-import {Scene, Header, Content} from '../components';
+import {Scene, Content} from '../components';
 
 function Home() {
   return (
     <>
-      <Header />
       <Scene>
         <Content />
       </Scene>
