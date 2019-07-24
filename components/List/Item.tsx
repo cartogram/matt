@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import H4 from '../H4';
-import H2 from '../H2';
+import Footnote from '../Footnote';
+import Heading from '../Heading';
 import A from '../A';
 
 const monthNames = [
@@ -47,15 +47,15 @@ function Item({item: {title, tags, date, permalink, onGoing, label}}: Props) {
   const formattedOngoing = onGoing ? '→Now' : '';
   const formattedTags = tags ? tags : [];
   const tagsMarkup = (
-    <H4>
+    <Footnote>
       {formattedTags.join(', ')}
       {formattedDate}
       {formattedOngoing}
-    </H4>
+    </Footnote>
   );
 
-  const labelMarkup = label && <H4>{label}</H4>;
-  const textMarkup = <H2>{title}</H2>;
+  const labelMarkup = label && <Footnote>{label}</Footnote>;
+  const textMarkup = <Heading>{title}</Heading>;
 
   const linkMarkup = permalink ? (
     <A href={permalink} target="_blank">

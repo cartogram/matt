@@ -5,8 +5,12 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     emSizes: string[];
     remSizes: string[];
-    typography: Typography;
     siteBackgroundColor: string;
+    fontFamilySans: {
+      name: string;
+      weight: number;
+    };
+    fontSizes: string[];
     siteBackground: string;
     primaryColor: string;
     emBase: number;

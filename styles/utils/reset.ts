@@ -5,6 +5,7 @@ const reset = css`
   border: 0;
   margin: 0;
   padding: 0;
+  font-weight: normal;
 `;
 
 export default reset;

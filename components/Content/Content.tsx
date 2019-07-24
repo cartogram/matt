@@ -1,21 +1,11 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {twoLiner, title, links, posts} from '../../content';
 import Text from '../Text';
-import H4 from '../H4';
-import H1 from '../H1';
+import Footnote from '../Footnote';
+import Heading from '../Heading';
 import List from '../List';
 import A from '../A';
-import {theme} from '../../styles';
-
-const enter = keyframes`
-
-
-  to {
-    transform: translate(0, 0%);
-    opacity: 1;
-  }
-`;
 
 const StyledContent = styled.section`
   width: 100%;
@@ -37,7 +27,6 @@ const Row = styled.div<RowProps>`
   display: flex;
   justify-content: ${props => (props.offSet ? 'flex-end' : 'flex-start')};
   padding: 0 0 ${props => props.theme.emSizes[12]};
-  max-width: 1300px;
   width: 100%;
 `;
 
@@ -46,20 +35,11 @@ interface BlockProps {
 }
 
 const Block = styled.div<BlockProps>`
-  opacity: 0;
-  transform: translate(0, 60%);
-  flex: 100% 0 1;
-  padding: 0 ${props => props.theme.emSizes[2]}
-    ${props => props.theme.emSizes[6]};
-  max-width: ${props => (props.offSet ? '600px' : 'auto')};
-  max-width: 100%;
+  padding: 0 10vw 5vh 5vw;
+  width: 100%;
   @media (min-width: 700px) {
-    min-width: 600px;
-    flex: ${props => (props.offSet ? `${(1 / 2) * 100}% 0 1` : 'auto')};
+    width: ${props => (props.offSet ? `55vw;` : `85vw;`)};
   }
-  position: relative;
-  animation: ${enter} ${theme.timing[4]} ${theme.timing[1]}
-    ${theme.easing.easeInOutQuint} forwards;
 `;
 
 function Content() {
@@ -67,7 +47,7 @@ function Content() {
     <StyledContent>
       <Row offSet>
         <Block offSet>
-          <H1>{title}</H1>
+          <Heading>{title}</Heading>
         </Block>
       </Row>
       <Row>
@@ -78,7 +58,7 @@ function Content() {
       <Row offSet>
         <Block offSet>
           <Text>{twoLiner}</Text>
-          <H4>
+          <Footnote>
             Currently at{' '}
             <A target="_blank" href="http://shopify.com">
               Shopify
@@ -88,7 +68,7 @@ function Content() {
               Cartogram
             </A>
             .
-          </H4>
+          </Footnote>
         </Block>
       </Row>
       <Row>

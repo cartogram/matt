@@ -11,13 +11,13 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: ${theme.typography.fontFamilySans.name};
-    font-weight: ${theme.typography.fontFamilySans.weight};
+    font-family: ${theme.fontFamilySans.name};
+    font-weight: ${theme.fontFamilySans.weight};
     line-height: 1.6;
-    font-size: 12px 
+    font-size: 2vw 
     
     @media (min-width: 700px) {
-      font-size: 16px
+      font-size: 1vw
     }
   }
 
