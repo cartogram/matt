@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import {respondTo} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
@@ -24,9 +25,9 @@ const StyledItem = styled.li`
   list-style: none;
   display: flex;
 
-  @media (min-width: 700px) {
-    flex-direction: row;
-  }
+  ${respondTo.md`
+  flex-direction: row;
+  `}
 `;
 
 interface Item {

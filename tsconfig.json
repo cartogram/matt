@@ -4,7 +4,7 @@
     "allowJs": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "jsx": "preserve",
     "lib": ["dom", "es2017"],
     "module": "esnext",

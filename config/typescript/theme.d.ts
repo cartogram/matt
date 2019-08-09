@@ -1,5 +1,9 @@
 import 'styled-components';
 
+interface Breakpoint {
+  [key: string]: string;
+}
+
 declare module 'styled-components' {
   interface Tyography {}
   export interface DefaultTheme {
@@ -20,5 +24,6 @@ declare module 'styled-components' {
     };
     images: any;
     easing: any;
+    breakpoints: Breakpoint;
   }
 }
