@@ -31,6 +31,7 @@ const StyledItem = styled.li`
 `;
 
 interface Item {
+  slug?: string;
   title: string;
   tags?: string[];
   date?: string;
@@ -43,7 +44,9 @@ interface Props {
   item: Item;
 }
 
-function Item({item: {title, tags, date, permalink, onGoing, label}}: Props) {
+function Item({
+  item: {title, slug, tags, date, permalink, onGoing, label},
+}: Props) {
   const formattedDate = date ? formatDate(date) : '';
   const formattedOngoing = onGoing ? '→Now' : '';
   const formattedTags = tags ? tags : [];
@@ -63,7 +66,7 @@ function Item({item: {title, tags, date, permalink, onGoing, label}}: Props) {
       {textMarkup}
     </A>
   ) : (
-    <Link href={`/item?title=${title}`}>
+    <Link href="[pid]" as={`/${slug}`}>
       <A>{textMarkup}</A>
     </Link>
   );

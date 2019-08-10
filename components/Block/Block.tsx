@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {respondTo} from '../../../../styles/utils';
+import {respondTo} from '../../styles/utils';
 
 interface BlockProps {
   offSet?: boolean;

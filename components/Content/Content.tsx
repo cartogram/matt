@@ -1,14 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
-
-import {twoLiner, title, links, posts} from '../../content';
-import Text from '../Text';
-import Footnote from '../Footnote';
-import Heading from '../Heading';
-import List from '../List';
-import A from '../A';
-import {Block, Row} from './components';
 
 const StyledContent = styled.section`
   width: 100%;
@@ -22,60 +13,12 @@ const StyledContent = styled.section`
   flex-direction: column;
 `;
 
-function Content() {
-  return (
-    <StyledContent>
-      <Row offSet>
-        <Block offSet>
-          <Heading>
-            <Link href="/">
-              <A>{title}</A>
-            </Link>
-          </Heading>
-        </Block>
-      </Row>
-      <Row>
-        <Block>
-          <List items={posts} />
-        </Block>
-      </Row>
-      <Row offSet>
-        <Block offSet>
-          <Text>{twoLiner}</Text>
-          <Footnote>
-            Currently Senior Developer on the{' '}
-            <A target="_blank" href="http://github.com/shopify/web-foundation">
-              Web Foundation Team
-            </A>{' '}
-            at{' '}
-            <A target="_blank" href="http://shopify.com">
-              Shopify
-            </A>
-          </Footnote>
-          <Footnote>
-            Previously at{' '}
-            <A target="_blank" href="http://cartogram.ca">
-              Cartogram
-            </A>
-            ,{' '}
-            <A target="_blank" href="http://catalystworkshop.com">
-              Catalyst Workshop
-            </A>
-            , and{' '}
-            <A target="_blank" href="http://barking.ca">
-              Barking Dog Studios
-            </A>
-            .
-          </Footnote>
-        </Block>
-      </Row>
-      <Row>
-        <Block>
-          <List items={links} />
-        </Block>
-      </Row>
-    </StyledContent>
-  );
+interface Props {
+  children?: any;
+}
+
+function Content({children}: Props) {
+  return <StyledContent>{children}</StyledContent>;
 }
 
 export default Content;

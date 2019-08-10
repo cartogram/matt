@@ -51,7 +51,7 @@ const theme: DefaultTheme = {
     name: 'lausanna',
     weight: 300,
   },
-  fontSizes: [emCalc(18), emCalc(30)],
+  fontSizes: [emCalc(18), emCalc(30), '10vw'],
   emBase,
   emSizes,
   remSizes,
