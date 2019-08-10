@@ -1,5 +1,5 @@
 import {DefaultTheme} from 'styled-components';
-import {emBase, emCalc, remCalc} from './utils';
+import {emBase, emCalc, remCalc, breakpoints} from './utils';
 
 const colors = {
   white: 'white',
@@ -59,6 +59,7 @@ const theme: DefaultTheme = {
   colors,
   images,
   easing,
+  breakpoints,
 };
 
 export default theme;

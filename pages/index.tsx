@@ -3,11 +3,9 @@ import {Scene, Content} from '../components';
 
 function Home() {
   return (
-    <>
-      <Scene>
-        <Content />
-      </Scene>
-    </>
+    <Scene>
+      <Content />
+    </Scene>
   );
 }
 

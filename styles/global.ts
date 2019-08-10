@@ -1,6 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 import theme from './theme';
-import {reset} from './utils';
+import {reset, respondTo} from './utils';
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -15,10 +15,18 @@ const GlobalStyle = createGlobalStyle`
     font-weight: ${theme.fontFamilySans.weight};
     line-height: 1.6;
     font-size: 2vw 
-    
-    @media (min-width: 700px) {
+
+    ${respondTo.sm`
+      font-size: 1.5vw
+    `}
+
+    ${respondTo.md`
+      font-size: 1.2vw
+    `}
+
+    ${respondTo.lg`
       font-size: 1vw
-    }
+    `}
   }
 
   *,
