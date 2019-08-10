@@ -12,6 +12,7 @@ interface Post {
   onGoing?: boolean;
   content?: string;
   heading?: string;
+  color?: string;
 }
 
 enum Tag {
@@ -28,6 +29,7 @@ export const posts: Post[] = [
     date: '2017-04-01',
     onGoing: true,
     content: 'This is the content',
+    color: '#88ffc8',
   },
   {
     slug: 'lamas',
