@@ -16,7 +16,7 @@
         "@vx/pattern": "^0.0.189",
         "next": "^9.0.2",
         "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react-dom": "^16.10.1",
         "react-spring": "^8.0.27",
         "styled-components": "^4.3.2"
     },
