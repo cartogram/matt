@@ -1,0 +1,1 @@
+const shrinkRay = true
