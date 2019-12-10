@@ -1,8 +1,6 @@
 {
   "editor.formatOnSave": true,
   "editor.formatOnSaveTimeout": 3000,
-  "prettier.stylelintIntegration": true,
-  "prettier.eslintIntegration": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
