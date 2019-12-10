@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import {twoLiner, title, links, posts} from '../content';
 import {
   Text,
@@ -20,9 +19,7 @@ function Home() {
         <Row offSet>
           <Block offSet>
             <Heading>
-              <Link href="/">
-                <A>{title}</A>
-              </Link>
+              <A href="/">{title}</A>
             </Heading>
           </Block>
         </Row>
@@ -33,34 +30,20 @@ function Home() {
         </Row>
         <Row offSet>
           <Block offSet>
-            <Text>{twoLiner}</Text>
+            <Text dangerouslySetInnerHTML={{__html: twoLiner}} />
             <Footnote>
               Currently Senior Developer on the{' '}
-              <A
-                target="_blank"
-                href="http://github.com/shopify/web-foundation"
-              >
+              <A external href="http://github.com/shopify/web-foundation">
                 Web Foundation Team
               </A>{' '}
-              at{' '}
-              <A target="_blank" href="http://shopify.com">
-                Shopify
-              </A>
+              at Shopify.
             </Footnote>
             <Footnote>
               Previously at{' '}
-              <A target="_blank" href="http://cartogram.ca">
+              <A external href="http://cartogram.ca">
                 Cartogram
-              </A>
-              ,{' '}
-              <A target="_blank" href="http://catalystworkshop.com">
-                Catalyst Workshop
-              </A>
-              , and{' '}
-              <A target="_blank" href="http://barking.ca">
-                Barking Dog Studios
-              </A>
-              .
+              </A>{' '}
+              and Catalyst Workshop.
             </Footnote>
           </Block>
         </Row>

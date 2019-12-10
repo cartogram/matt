@@ -50,7 +50,6 @@ function CircleSvg({size, fill, filter, theme}: Props) {
       break;
 
     case Fill.LinearGradient:
-      console.log(theme);
       fillMarkup = (
         <linearGradient
           id={Fill.LinearGradient}

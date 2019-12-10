@@ -28,14 +28,16 @@ export const posts: Post[] = [
     tags: [Tag.Project],
     date: '2017-04-01',
     onGoing: true,
-    content: 'This is the content',
+    content: require(`./fondfolio.md`).default,
     color: '#88ffc8',
+    permalink: 'https://fondfolio.com',
   },
   {
     slug: 'lamas',
     title: 'Lamas',
     tags: [Tag.Project],
     date: '2017-01-19',
+    permalink: 'https://lamas.us',
   },
 
   {
@@ -79,7 +81,7 @@ export const oneLiner = `
 export const currently = `
   Currently working at Shopify`;
 
-export const twoLiner = `Toronto-based developer, lapsed designer, builder of interfaces, usually for screens, sometimes command lines.`;
+export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens, sometimes command lines.`;
 
 export const links = [
   // {

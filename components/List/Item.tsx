@@ -1,25 +1,10 @@
 import React from 'react';
-import Link from 'next/link';
 import styled from 'styled-components';
 import {respondTo} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
-
-const monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
+import {formatDate} from '../../utlities/formatDate';
 
 const StyledItem = styled.li`
   list-style: none;
@@ -62,13 +47,13 @@ function Item({
   const textMarkup = <Heading>{title}</Heading>;
 
   const linkMarkup = permalink ? (
-    <A href={permalink} target="_blank">
+    <A external href={permalink}>
       {textMarkup}
     </A>
   ) : (
-    <Link href="[pid]" as={`/${slug}`}>
-      <A>{textMarkup}</A>
-    </Link>
+    <A href={slug || ''} as={`/${slug}`}>
+      {textMarkup}
+    </A>
   );
   return (
     <StyledItem>
@@ -77,17 +62,6 @@ function Item({
       {labelMarkup}
     </StyledItem>
   );
-}
-
-function formatDate(initialDate: string) {
-  const date = new Date(initialDate);
-  const month = monthNames[date.getMonth()];
-  const year = date
-    .getFullYear()
-    .toString()
-    .slice(-2);
-
-  return `—${month} ${year}`;
 }
 
 export default Item;

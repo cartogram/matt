@@ -1,21 +1,44 @@
 import React from 'react';
 import {useRouter} from 'next/router';
-import Link from 'next/link';
 import {ThemeProvider} from 'styled-components';
+import ReactMarkdown from 'react-markdown';
+import {formatDate} from '../utlities/formatDate';
+
 import {posts} from '../content';
-import {Text, Heading, A, Block, Row, Content, Scene} from '../components';
+import {
+  Text,
+  Heading,
+  RawHtml,
+  A,
+  Block,
+  Row,
+  Content,
+  Footnote,
+} from '../components';
+// eslint-disable-next-line shopify/strict-component-boundaries
+import {Container} from '../components/Scene/components';
 import {theme} from '../styles';
 
-const Post = () => {
+function Post() {
   const router = useRouter();
   const {pid} = router.query;
   const post = getPostBySlug(pid);
 
   if (!post) {
-    return '404';
+    return (
+      <Content single>
+        <Row offSet>
+          <Block offSet>
+            <Heading as="span">
+              <A href="/">404</A>
+            </Heading>
+          </Block>
+        </Row>
+      </Content>
+    );
   }
 
-  const {title, heading, content, color} = post;
+  const {title, heading, content, date, color} = post;
   return (
     <ThemeProvider
       theme={{
@@ -23,32 +46,35 @@ const Post = () => {
         ...overrideThemeColor(color),
       }}
     >
-      <Scene>
-        <Content>
+      <Container>
+        <Content single>
           <Row offSet>
             <Block offSet>
               <Heading as="span">
-                <Link href="/">
-                  <A>{title}</A>
-                </Link>
+                <A href="/">Back</A>
               </Heading>
             </Block>
           </Row>
           <Row>
             <Block>
-              <Heading level={1}>{heading || title}</Heading>
+              <Text>
+                <A href={`/${post.slug}`}>{heading || title}</A>
+              </Text>
+              <Footnote>{formatDate(date)}</Footnote>
             </Block>
           </Row>
           <Row offSet>
             <Block offSet>
-              <Text>{content}</Text>
+              <RawHtml>
+                <ReactMarkdown source={content} />
+              </RawHtml>
             </Block>
           </Row>
         </Content>
-      </Scene>
+      </Container>
     </ThemeProvider>
   );
-};
+}
 
 export default Post;
 
@@ -62,8 +88,8 @@ function overrideThemeColor(color?: string) {
     return {};
   }
 
-  return {
-    siteBackground: color,
-    siteBackgroundColor: color,
-  };
+  // return {
+  //   siteBackground: color,
+  //   siteBackgroundColor: color,
+  // };
 }
