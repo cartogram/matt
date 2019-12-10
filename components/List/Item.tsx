@@ -26,7 +26,7 @@ const StyledItem = styled.li`
   display: flex;
 
   ${respondTo.md`
-  flex-direction: row;
+    flex-direction: row;
   `}
 `;
 

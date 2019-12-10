@@ -43,13 +43,27 @@ function Content() {
         <Block offSet>
           <Text>{twoLiner}</Text>
           <Footnote>
-            Currently at{' '}
+            Currently Senior Developer on the{' '}
+            <A target="_blank" href="http://github.com/shopify/web-foundation">
+              Web Foundation Team
+            </A>{' '}
+            at{' '}
             <A target="_blank" href="http://shopify.com">
               Shopify
             </A>
-            , previously{' '}
+          </Footnote>
+          <Footnote>
+            Previously at{' '}
             <A target="_blank" href="http://cartogram.ca">
               Cartogram
+            </A>
+            ,{' '}
+            <A target="_blank" href="http://catalystworkshop.com">
+              Catalyst Workshop
+            </A>
+            , and{' '}
+            <A target="_blank" href="http://barking.ca">
+              Barking Dog Studios
             </A>
             .
           </Footnote>
