@@ -15,7 +15,10 @@ const calc = (x: number, y: number) => [
   y - window.innerHeight / 2,
 ];
 
-function Scene({children}: {children: any}) {
+interface Props {
+  children: any;
+}
+function Scene({children}: Props) {
   const [{st, xy}, set] = useSpring(() => ({
     st: 0,
     xy: [0, 0],
@@ -91,20 +94,6 @@ function Scene({children}: {children: any}) {
           transform={interpDiagonal}
           svg={<CircleSvg size={40} fill={Fill.DiagonalLines} filter="none" />}
         />
-        {/* <CircleFour animationProps={props} transform={trans4}>
-        <Text>
-          {title}–{twoLiner}
-        </Text>
-        <List items={posts} />
-      </CircleFour> */}
-        {/* <CircleFour animationProps={props} transform={trans5}>
-        <List items={posts} />
-      </CircleFour> */}
-        {/* <CircleFour animationProps={props} transform={trans6}>
-        {title}
-      </CircleFour> */}
-        {/* <CircleFour animationProps={props} transform={trans7}>
-      </CircleFour> */}
       </Container>
       {children}
     </StyledScene>

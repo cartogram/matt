@@ -1,20 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
-import {twoLiner, title, links, posts} from '../../content';
-import Text from '../Text';
-import Footnote from '../Footnote';
-import Heading from '../Heading';
-import List from '../List';
-import A from '../A';
-import {Block, Row} from './components';
+interface Props {
+  children?: any;
+  single?: boolean;
+}
 
-const StyledContent = styled.section`
+const StyledContent = styled.section<Props>`
   width: 100%;
   position: relative;
   z-index: 2;
-  margin-top: calc(-100vh + 10em);
+  margin-top: ${props => (props.single ? '0' : 'calc(-100vh + 10em)')};
   padding: ${props => props.theme.emSizes[18]}
     ${props => props.theme.emSizes[2]};
   display: flex;
@@ -22,60 +18,8 @@ const StyledContent = styled.section`
   flex-direction: column;
 `;
 
-function Content() {
-  return (
-    <StyledContent>
-      <Row offSet>
-        <Block offSet>
-          <Heading>
-            <Link href="/">
-              <A>{title}</A>
-            </Link>
-          </Heading>
-        </Block>
-      </Row>
-      <Row>
-        <Block>
-          <List items={posts} />
-        </Block>
-      </Row>
-      <Row offSet>
-        <Block offSet>
-          <Text>{twoLiner}</Text>
-          <Footnote>
-            Currently Senior Developer on the{' '}
-            <A target="_blank" href="http://github.com/shopify/web-foundation">
-              Web Foundation Team
-            </A>{' '}
-            at{' '}
-            <A target="_blank" href="http://shopify.com">
-              Shopify
-            </A>
-          </Footnote>
-          <Footnote>
-            Previously at{' '}
-            <A target="_blank" href="http://cartogram.ca">
-              Cartogram
-            </A>
-            ,{' '}
-            <A target="_blank" href="http://catalystworkshop.com">
-              Catalyst Workshop
-            </A>
-            , and{' '}
-            <A target="_blank" href="http://barking.ca">
-              Barking Dog Studios
-            </A>
-            .
-          </Footnote>
-        </Block>
-      </Row>
-      <Row>
-        <Block>
-          <List items={links} />
-        </Block>
-      </Row>
-    </StyledContent>
-  );
+function Content({children, single}: Props) {
+  return <StyledContent single={single}>{children}</StyledContent>;
 }
 
 export default Content;

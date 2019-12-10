@@ -3,12 +3,16 @@ export const firstName = 'Matt';
 export const lastName = 'Seccafien';
 
 interface Post {
+  slug: string;
   title: string;
   tags?: Tag[];
   date: string;
   permalink?: string;
   label?: string;
   onGoing?: boolean;
+  content?: string;
+  heading?: string;
+  color?: string;
 }
 
 enum Tag {
@@ -19,20 +23,25 @@ enum Tag {
 
 export const posts: Post[] = [
   {
+    slug: 'fondfolio',
     title: 'Fondfolio',
     tags: [Tag.Project],
     date: '2017-04-01',
-    permalink: 'https://fondfolio.com',
     onGoing: true,
+    content: require(`./fondfolio.md`).default,
+    color: '#88ffc8',
+    permalink: 'https://fondfolio.com',
   },
   {
+    slug: 'lamas',
     title: 'Lamas',
     tags: [Tag.Project],
     date: '2017-01-19',
-    permalink: 'http://lamas.us/',
+    permalink: 'https://lamas.us',
   },
 
   {
+    slug: '',
     title: 'Embracing Constraint with CSS Modules',
     tags: [Tag.Writing],
     permalink:
@@ -40,12 +49,14 @@ export const posts: Post[] = [
     date: '2016-09-20',
   },
   {
+    slug: 'consciously-coupling',
     title: 'Consciously Coupling',
     tags: [Tag.Project],
     date: '2016-10-19',
-    permalink: 'http://consciouslycoupling.com',
   },
   {
+    slug: '',
+
     title: 'Using Arrays as CSS config and Immutable Reverse',
     tags: [Tag.Writing],
     permalink:
@@ -53,6 +64,8 @@ export const posts: Post[] = [
     date: '2016-12-22',
   },
   {
+    slug: '',
+
     title: 'Lauren Wickware',
     tags: [Tag.Project],
     date: '2015-01-16',
@@ -68,7 +81,7 @@ export const oneLiner = `
 export const currently = `
   Currently working at Shopify`;
 
-export const twoLiner = `Toronto-based developer, lapsed designer, builder of interfaces, usually for screens, sometimes command lines.`;
+export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens, sometimes command lines.`;
 
 export const links = [
   // {

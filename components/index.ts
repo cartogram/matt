@@ -5,3 +5,6 @@ export {default as A} from './A';
 export {default as Content} from './Content';
 export {default as List} from './List';
 export {default as Footnote} from './Footnote';
+export {default as Block} from './Block';
+export {default as Row} from './Row';
+export {default as RawHtml} from './RawHtml';

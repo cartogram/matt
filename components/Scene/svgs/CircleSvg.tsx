@@ -1,7 +1,7 @@
 import React from 'react';
 // @ts-ignore
 import {PatternLines, PatternWaves} from '@vx/pattern';
-import {theme} from '../../../styles';
+import {withTheme, DefaultTheme} from 'styled-components';
 import {makeCircleSvg} from './utilities';
 
 export enum Fill {
@@ -14,9 +14,10 @@ interface Props {
   size: number;
   fill: Fill;
   filter: 'dropShadow' | 'none';
+  theme: DefaultTheme;
 }
 
-function CircleSvg({size, fill, filter}: Props) {
+function CircleSvg({size, fill, filter, theme}: Props) {
   const path = makeCircleSvg(size);
 
   let fillMarkup;
@@ -57,7 +58,11 @@ function CircleSvg({size, fill, filter}: Props) {
           x2="0%"
           y2="100%"
         >
-          <stop offset="0%" stopColor={theme.colors.grey[0]} stopOpacity="1" />
+          <stop
+            offset="0%"
+            stopColor={theme.siteBackgroundColor}
+            stopOpacity="1"
+          />
           <stop
             offset="100%"
             stopColor={theme.colors.grey[0]}
@@ -101,4 +106,4 @@ function CircleSvg({size, fill, filter}: Props) {
   );
 }
 
-export default CircleSvg;
+export default withTheme(CircleSvg);
