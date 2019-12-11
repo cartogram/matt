@@ -21,10 +21,8 @@ const StyledA = styled.a<{current?: boolean}>`
 
 function A({external, href, children}: Props) {
   const router = useRouter();
-  console.log(router);
   const current = router.asPath === href;
 
-  console.log(router.pathname, href);
   if (external) {
     return (
       <StyledA href={href} target="_blank">

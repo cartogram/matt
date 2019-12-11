@@ -25,6 +25,8 @@ const images = {
   background: '/static/images/noise.png',
 };
 
+const radius = '4px';
+
 const baseSize = 8;
 
 const halfSizes = Array.from(
@@ -60,6 +62,7 @@ const theme: DefaultTheme = {
   images,
   easing,
   breakpoints,
+  radius,
 };
 
 export default theme;

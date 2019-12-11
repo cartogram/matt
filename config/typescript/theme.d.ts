@@ -25,5 +25,6 @@ declare module 'styled-components' {
     images: any;
     easing: any;
     breakpoints: Breakpoint;
+    radius: string;
   }
 }
