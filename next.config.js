@@ -1,3 +1,5 @@
+/* eslint-disable no-process-env, no-undef */
+
 require('dotenv').config();
 
 module.exports = {
@@ -10,7 +12,7 @@ module.exports = {
     return config;
   },
   env: {
-    // eslint-disable-next-line no-process-env, no-undef
     NAME: process.env.NAME,
+    BETA_1: process.env.BETA_1,
   },
 };
