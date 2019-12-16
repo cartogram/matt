@@ -1,4 +1,5 @@
-export const title = 'Matt Seccafien';
+// eslint-disable-next-line no-process-env
+export const title = process.env.NAME;
 export const firstName = 'Matt';
 export const lastName = 'Seccafien';
 
