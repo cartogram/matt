@@ -8,17 +8,24 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: ${(props: Pick<ListProps, 'inline'>) =>
     props.inline ? 'row' : 'column'};
+  > * {
+    padding: ${props =>
+      props.inline ? `0 ${props.theme.fontSizes[0]} 0 0` : '0'};
+  }
 `;
 
 interface ListProps {
   items: Props<typeof Item>['item'][];
   inline?: boolean;
+  small?: boolean;
 }
 
-function List({items, inline}: ListProps) {
-  const postsMarkup = items.map(item => <Item key={item.title} item={item} />);
+function List({items, inline, small}: ListProps) {
+  const itemsMarkup = items.map(item => (
+    <Item small={small} key={item.title} item={item} />
+  ));
 
-  return <StyledList inline={inline}>{postsMarkup}</StyledList>;
+  return <StyledList inline={inline}>{itemsMarkup}</StyledList>;
 }
 
 export default List;

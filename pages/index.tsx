@@ -39,19 +39,14 @@ function Home() {
                   Web Foundation Team
                 </A>{' '}
                 at Shopify.
-              </Footnote>
-              <Footnote>
+                <br />
                 Previously at{' '}
                 <A external href="http://cartogram.ca">
                   Cartogram
                 </A>{' '}
                 and Catalyst Workshop.
               </Footnote>
-            </Block>
-          </Row>
-          <Row>
-            <Block>
-              <List items={links} />
+              <List inline small items={links} />
             </Block>
           </Row>
         </ContentInner>
