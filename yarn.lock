@@ -1226,10 +1226,10 @@
     "@types/react-native" "*"
     csstype "^2.2.0"
 
-"@vx/pattern@^0.0.189":
-  version "0.0.189"
-  resolved "https://registry.yarnpkg.com/@vx/pattern/-/pattern-0.0.189.tgz#df5dd227b22ce1625402d1a7d77e79f829fe07bc"
-  integrity sha512-yI1xHdxQ2V0DxqjfNUjvq3RdTryCwbmQy5jDgIwgawF8jNXKr9oheVbGNAXfXtOqmPtGMkwABaQqqi2Xtg2QCQ==
+"@vx/pattern@^0.0.192":
+  version "0.0.192"
+  resolved "https://registry.yarnpkg.com/@vx/pattern/-/pattern-0.0.192.tgz#2a92baaaf0fe4ac1b2d1b94ae4fadd1ac294014e"
+  integrity sha512-aFlOCYsgxuvT2S2IO7bIOKokGrSlPgKOcWFLAROkSznMG0txDn1grseb21nKkymQEXaGJFE9Ck1qnaXI1ESfjQ==
   dependencies:
     classnames "^2.2.5"
     prop-types "^15.5.10"
