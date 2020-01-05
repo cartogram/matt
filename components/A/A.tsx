@@ -6,6 +6,7 @@ import {useRouter} from 'next/router';
 type Props = {
   external?: boolean;
   href?: string;
+  as?: string;
   children?: React.ReactNode;
 } & LinkProps;
 
@@ -19,12 +20,10 @@ const StyledA = styled.a<{current?: boolean}>`
   }
 `;
 
-function A({external, href, children}: Props) {
+function A({external, as, href, children}: Props) {
   const router = useRouter();
-  console.log(router);
   const current = router.asPath === href;
 
-  console.log(router.pathname, href);
   if (external) {
     return (
       <StyledA href={href} target="_blank">
@@ -32,9 +31,10 @@ function A({external, href, children}: Props) {
       </StyledA>
     );
   }
+  console.log(href);
 
   return (
-    <Link href={href}>
+    <Link as={as} href={href}>
       <StyledA current={current}>{children}</StyledA>
     </Link>
   );

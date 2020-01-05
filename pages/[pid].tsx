@@ -13,6 +13,7 @@ import {
   Block,
   Row,
   Content,
+  ContentInner,
   Footnote,
 } from '../components';
 // eslint-disable-next-line shopify/strict-component-boundaries
@@ -26,15 +27,17 @@ function Post() {
 
   if (!post) {
     return (
-      <Content single>
-        <Row offSet>
-          <Block offSet>
-            <Heading as="span">
-              <A href="/">404</A>
-            </Heading>
-          </Block>
-        </Row>
-      </Content>
+      <Container>
+        <Content single>
+          <Row offSet>
+            <Block offSet>
+              <Heading as="span">
+                <A href="/">FourOHFour</A>
+              </Heading>
+            </Block>
+          </Row>
+        </Content>
+      </Container>
     );
   }
 
@@ -48,28 +51,17 @@ function Post() {
     >
       <Container>
         <Content single>
-          <Row offSet>
-            <Block offSet>
-              <Heading as="span">
-                <A href="/">Back</A>
-              </Heading>
-            </Block>
-          </Row>
-          <Row>
-            <Block>
-              <Text>
-                <A href={`/${post.slug}`}>{heading || title}</A>
-              </Text>
-              <Footnote>{formatDate(date)}</Footnote>
-            </Block>
-          </Row>
-          <Row offSet>
-            <Block offSet>
-              <RawHtml>
-                <ReactMarkdown source={content} />
-              </RawHtml>
-            </Block>
-          </Row>
+          <ContentInner>
+            <Row>
+              <Block>
+                <Text>{heading || title}</Text>
+                <Footnote>{formatDate(date)}</Footnote>
+              </Block>
+            </Row>
+            <RawHtml>
+              <ReactMarkdown escapeHtml={false} source={content} />
+            </RawHtml>
+          </ContentInner>
         </Content>
       </Container>
     </ThemeProvider>

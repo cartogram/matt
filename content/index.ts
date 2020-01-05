@@ -1,4 +1,5 @@
-export const title = 'Matt Seccafien';
+// eslint-disable-next-line no-process-env
+export const title = process.env.NAME;
 export const firstName = 'Matt';
 export const lastName = 'Seccafien';
 
@@ -37,6 +38,7 @@ export const posts: Post[] = [
     title: 'Lamas',
     tags: [Tag.Project],
     date: '2017-01-19',
+    content: require(`./lamas.md`).default,
     permalink: 'https://lamas.us',
   },
 
@@ -56,7 +58,6 @@ export const posts: Post[] = [
   },
   {
     slug: '',
-
     title: 'Using Arrays as CSS config and Immutable Reverse',
     tags: [Tag.Writing],
     permalink:
@@ -84,28 +85,20 @@ export const currently = `
 export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens, sometimes command lines.`;
 
 export const links = [
-  // {
-  //   title: 'projects',
-  //   permalink: 'http://cartogram.ca',
-  // },
   {
-    title: 'Download my CV',
-    permalink: 'static/cv.pdf',
-    label: 'pdf',
-  },
-  {
-    title: 'Look at my code',
-    permalink: 'https://github.com/cartogram',
-    label: 'github',
-  },
-  // {
-  //   title: 'writing',
-  //   permalink: 'https://www.medium.com/crtogrm',
-  // },
-  {
-    title: 'Get in touch',
+    title: 'Contact',
     permalink: 'mailto:mseccafien@gmail.com',
-    label: 'email',
+    // label: 'email',
+  },
+  {
+    title: 'CV',
+    permalink: 'static/cv.pdf',
+    // label: 'pdf',
+  },
+  {
+    title: 'Github',
+    permalink: 'https://github.com/cartogram',
+    // label: 'github',
   },
   // {
   //   title: 'tel',

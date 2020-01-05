@@ -23,13 +23,16 @@ interface Item {
   label?: string;
   permalink?: string;
   onGoing?: boolean;
+  small?: boolean;
 }
 
 interface Props {
   item: Item;
+  small?: boolean;
 }
 
 function Item({
+  small,
   item: {title, slug, tags, date, permalink, onGoing, label},
 }: Props) {
   const formattedDate = date ? formatDate(date) : '';
@@ -44,7 +47,11 @@ function Item({
   );
 
   const labelMarkup = label && <Footnote>{label}</Footnote>;
-  const textMarkup = <Heading>{title}</Heading>;
+  const textMarkup = small ? (
+    <Footnote>{title}</Footnote>
+  ) : (
+    <Heading>{title}</Heading>
+  );
 
   const linkMarkup = permalink ? (
     <A external href={permalink}>
