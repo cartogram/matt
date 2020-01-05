@@ -21,7 +21,7 @@ function Home() {
           <Row offSet>
             <Block offSet>
               <Heading>
-                <A href="/">{title}</A>
+                <A href="/">{title || 'Matthew Seccafien'}</A>
               </Heading>
             </Block>
           </Row>
