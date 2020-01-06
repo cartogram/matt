@@ -90,11 +90,11 @@ export const links = [
     permalink: 'mailto:mseccafien@gmail.com',
     // label: 'email',
   },
-  {
-    title: 'CV',
-    permalink: 'static/cv.pdf',
-    // label: 'pdf',
-  },
+  // {
+  //   title: 'CV',
+  //   permalink: 'static/cv.pdf',
+  // label: 'pdf',
+  // },
   {
     title: 'Github',
     permalink: 'https://github.com/cartogram',

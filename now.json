@@ -1,6 +1,11 @@
 {
   "name": "matt",
   "version": 2,
+  "build": {
+    "env": {
+      "NAME": "@name"
+    }
+  },
   "env": {
     "NAME": "@name"
   }

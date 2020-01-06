@@ -58,7 +58,7 @@ function Item({
       {textMarkup}
     </A>
   ) : (
-    <A href={slug || ''} as={`/${slug}`}>
+    <A href="/[pid]" as={`/${slug}`}>
       {textMarkup}
     </A>
   );
