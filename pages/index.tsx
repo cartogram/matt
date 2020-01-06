@@ -1,3 +1,4 @@
+/* eslint-disable no-process-env */
 import React from 'react';
 import {twoLiner, title, links, posts} from '../content';
 import {
@@ -14,6 +15,10 @@ import {
 } from '../components';
 
 function Home() {
+  console.log(process.env.NAME);
+  console.log(process.env.name);
+  console.log(process.env);
+
   return (
     <Scene>
       <Content>
@@ -44,7 +49,7 @@ function Home() {
                 <A external href="http://cartogram.ca">
                   Cartogram
                 </A>{' '}
-                and Catalyst Workshop.
+                and Catalyst Workshop. <A href="static/cv.pdf">View more</A>
               </Footnote>
               <List inline small items={links} />
             </Block>

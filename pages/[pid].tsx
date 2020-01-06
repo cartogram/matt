@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRouter} from 'next/router';
+// import {useRouter} from 'next/router';
 import {ThemeProvider} from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import {formatDate} from '../utlities/formatDate';
@@ -7,41 +7,43 @@ import {formatDate} from '../utlities/formatDate';
 import {posts} from '../content';
 import {
   Text,
-  Heading,
   RawHtml,
-  A,
   Block,
   Row,
   Content,
   ContentInner,
   Footnote,
+  LoadBar,
 } from '../components';
 // eslint-disable-next-line shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
 import {theme} from '../styles';
 
-function Post() {
-  const router = useRouter();
-  const {pid} = router.query;
-  const post = getPostBySlug(pid);
+interface Props {
+  post: any;
+}
+function Post({post}: Props) {
 
-  if (!post) {
-    return (
-      <Container>
-        <Content single>
-          <Row offSet>
-            <Block offSet>
-              <Heading as="span">
-                <A href="/">FourOHFour</A>
-              </Heading>
-            </Block>
-          </Row>
-        </Content>
-      </Container>
-    );
-  }
+  const {title, heading, content, date, color} = post || {};
 
-  const {title, heading, content, date, color} = post;
+  const contentMarkup = post ? (
+    <Content single>
+      <ContentInner>
+        <Row>
+          <Block>
+            <Text>{heading || title}</Text>
+            <Footnote>{formatDate(date)}</Footnote>
+          </Block>
+        </Row>
+        <RawHtml>
+          <ReactMarkdown escapeHtml={false} source={content} />
+        </RawHtml>
+      </ContentInner>
+    </Content>
+  ) : (
+    <LoadBar />
+  );
+
   return (
     <ThemeProvider
       theme={{
@@ -49,31 +51,24 @@ function Post() {
         ...overrideThemeColor(color),
       }}
     >
-      <Container>
-        <Content single>
-          <ContentInner>
-            <Row>
-              <Block>
-                <Text>{heading || title}</Text>
-                <Footnote>{formatDate(date)}</Footnote>
-              </Block>
-            </Row>
-            <RawHtml>
-              <ReactMarkdown escapeHtml={false} source={content} />
-            </RawHtml>
-          </ContentInner>
-        </Content>
-      </Container>
+      <Container>{contentMarkup}</Container>
     </ThemeProvider>
   );
 }
 
 export default Post;
 
-function getPostBySlug(args: string | string[]) {
+function getPostBySlug(args: string | string[]): Promise<any> {
   const slug = Array.isArray(args) ? args[0] : args;
-  return posts.find(post => post.slug === slug);
+  return Promise.resolve(posts.find(post => post.slug === slug));
 }
+
+Post.getInitialProps = async (ctx: any) => {
+  const post = await getPostBySlug(ctx.query.pid);
+
+  return {post};
+}
+
 
 function overrideThemeColor(color?: string) {
   if (!color) {

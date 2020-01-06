@@ -1,4 +1,8 @@
-export function formatDate(initialDate: string) {
+export function formatDate(initialDate?: string) {
+  if (!initialDate) {
+    return '';
+  }
+
   const date = new Date(initialDate);
   const month = monthNames[date.getMonth()];
   const year = date
