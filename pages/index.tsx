@@ -15,10 +15,6 @@ import {
 } from '../components';
 
 function Home() {
-  console.log(process.env.NAME);
-  console.log(process.env.name);
-  console.log(process.env);
-
   return (
     <Scene>
       <Content>
