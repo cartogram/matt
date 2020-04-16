@@ -10,7 +10,6 @@ const StyledContent = styled.section<Props>`
   width: 100%;
   position: relative;
   z-index: 2;
-  margin-top: ${props => (props.single ? '0' : '-100vh')};
   display: flex;
   align-items: center;
   flex-direction: column;

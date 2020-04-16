@@ -9,6 +9,7 @@ import {formatDate} from '../../utlities/formatDate';
 const StyledItem = styled.li`
   list-style: none;
   display: flex;
+  flex-direction: column;
 
   ${respondTo.md`
     flex-direction: row;

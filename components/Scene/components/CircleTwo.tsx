@@ -15,7 +15,7 @@ const enter = keyframes`
 
 const CircleTwo = styled(Animated)`
   position: absolute;
-  left: 30%;
+  left: 10%;
   will-change: transform;
   height: 40vh;
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};
