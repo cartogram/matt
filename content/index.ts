@@ -39,7 +39,7 @@ export const posts: Post[] = [
     tags: [Tag.Project],
     date: '2017-01-19',
     content: require(`./lamas.md`).default,
-    permalink: 'https://lamas.us',
+    // permalink: 'https://lamas.us',
   },
 
   {

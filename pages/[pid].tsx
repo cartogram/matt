@@ -6,7 +6,7 @@ import {formatDate} from '../utlities/formatDate';
 
 import {posts} from '../content';
 import {
-  Text,
+  Heading,
   RawHtml,
   Block,
   Row,
@@ -14,6 +14,8 @@ import {
   ContentInner,
   Footnote,
   LoadBar,
+  A,
+  Mast,
 } from '../components';
 // eslint-disable-next-line shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
@@ -23,21 +25,30 @@ interface Props {
   post: any;
 }
 function Post({post}: Props) {
-
   const {title, heading, content, date, color} = post || {};
 
   const contentMarkup = post ? (
     <Content single>
+      <Mast video="static/videos/lamas.mp4" />
+
       <ContentInner>
-        <Row>
-          <Block>
-            <Text>{heading || title}</Text>
-            <Footnote>{formatDate(date)}</Footnote>
+        <Row offSet hard>
+          <Block offSet hard>
+            <Heading>
+              <A href="" as="span">
+                {heading || title}
+              </A>
+            </Heading>
           </Block>
         </Row>
         <RawHtml>
           <ReactMarkdown escapeHtml={false} source={content} />
         </RawHtml>
+        <Row offSet hard>
+          <Block offSet hard>
+            <Footnote>{formatDate(date)}</Footnote>
+          </Block>
+        </Row>
       </ContentInner>
     </Content>
   ) : (
@@ -67,8 +78,7 @@ Post.getInitialProps = async (ctx: any) => {
   const post = await getPostBySlug(ctx.query.pid);
 
   return {post};
-}
-
+};
 
 function overrideThemeColor(color?: string) {
   if (!color) {
