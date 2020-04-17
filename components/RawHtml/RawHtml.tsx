@@ -55,9 +55,10 @@ const StyledRawHtml = styled.article`
     font-size: ${props => props.theme.fontSizes[1]};
 
     position: relative;
-    line-height: 1.5;
+    line-height: 1.4;
 
-    &:first-child {
+    &:first-child,
+    &:nth-child(2) {
       text-indent: 0;
     }
 
@@ -65,6 +66,17 @@ const StyledRawHtml = styled.article`
       width: 50%;
       left: 50%;
   `}
+  }
+
+  > span,
+  h1 {
+    padding-bottom: ${props => props.theme.emSizes[1]};
+
+    ${respondTo.md`
+    position: relative;
+    width: 50%;
+    left: 50%;
+`}
   }
 `;
 

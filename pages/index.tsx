@@ -1,4 +1,3 @@
-/* eslint-disable no-process-env */
 import React from 'react';
 import {twoLiner, title, links, posts} from '../content';
 import {
@@ -19,7 +18,7 @@ function Home() {
     <Scene>
       <Content>
         <ContentInner>
-          <Row offSet>
+          <Row offSet soft>
             <Block offSet>
               <Heading>
                 <A href="/">{title || 'Matthew Seccafien'}</A>

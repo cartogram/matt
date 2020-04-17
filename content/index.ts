@@ -14,6 +14,7 @@ interface Post {
   content?: string;
   heading?: string;
   color?: string;
+  more?: string;
 }
 
 enum Tag {
@@ -30,16 +31,17 @@ export const posts: Post[] = [
     date: '2017-04-01',
     onGoing: true,
     content: require(`./fondfolio.md`).default,
-    color: '#88ffc8',
-    permalink: 'https://fondfolio.com',
+    color: '#41aeff36',
   },
   {
     slug: 'lamas',
     title: 'Lamas',
     tags: [Tag.Project],
     date: '2017-01-19',
+    color: '#ff414140',
     content: require(`./lamas.md`).default,
-    // permalink: 'https://lamas.us',
+    more: 'https://lamas.us',
+    // permalink: ,
   },
 
   {

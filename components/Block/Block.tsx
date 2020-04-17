@@ -10,7 +10,7 @@ const Block = styled.div<BlockProps>`
   padding: ${props => (props.hard ? '0' : '0 10vw 5vh 5vw')};
   width: 100%;
   ${respondTo.md`
-    width: ${(props: BlockProps) => (props.offSet ? `50vw;` : `85vw;`)};
+    width: ${(props: BlockProps) => (props.offSet ? `55vw;` : `85vw;`)};
   `}
   }
 `;

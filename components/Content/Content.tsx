@@ -3,10 +3,9 @@ import styled from 'styled-components';
 
 interface Props {
   children?: React.ReactNode;
-  single?: boolean;
 }
 
-const StyledContent = styled.section<Props>`
+const StyledContent = styled.section`
   width: 100%;
   position: relative;
   z-index: 2;
@@ -19,8 +18,8 @@ const StyledContent = styled.section<Props>`
   height: 100%;
 `;
 
-function Content({children, single}: Props) {
-  return <StyledContent single={single}>{children}</StyledContent>;
+function Content({children}: Props) {
+  return <StyledContent>{children}</StyledContent>;
 }
 
 export const ContentInner = styled.div`

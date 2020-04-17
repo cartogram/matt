@@ -1163,6 +1163,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
   integrity sha512-kBa+cDHOR9jpRJ+kcGMsysrls0leukrm68DmFQoMIWQcXdr2cZvyvypWuGYT7U+9kAExUE7+T7r6G3C3A6L8MQ==
 
+"@shopify/react-hooks@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-1.8.0.tgz#4afdada639adc30a4bb191f7efeb6fa800aecd37"
+  integrity sha512-HxY3SOaAoUMMgtrWf12wgxHVHzEsqsD4wseTEJRSi3/ym949kMIQ8O8qf6+5kHWYMl5taoLLm4h9B2WjLFou3A==
+
 "@shopify/useful-types@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@shopify/useful-types/-/useful-types-1.3.0.tgz#79cfb6722d2cc192c05f14e55789bcfe2b40a6de"
