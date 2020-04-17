@@ -1168,12 +1168,11 @@
   resolved "https://registry.yarnpkg.com/@shopify/react-hooks/-/react-hooks-1.8.0.tgz#4afdada639adc30a4bb191f7efeb6fa800aecd37"
   integrity sha512-HxY3SOaAoUMMgtrWf12wgxHVHzEsqsD4wseTEJRSi3/ym949kMIQ8O8qf6+5kHWYMl5taoLLm4h9B2WjLFou3A==
 
-"@shopify/useful-types@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@shopify/useful-types/-/useful-types-1.3.0.tgz#79cfb6722d2cc192c05f14e55789bcfe2b40a6de"
-  integrity sha512-BQw5KFuDm7aAH1bPECxnC1bPyaLSmZP0ecs0XwzKtgltBHWGvgu8dpqNXvY+sDfG5tnF+79EjiytRCOsTElyIg==
+"@shopify/useful-types@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@shopify/useful-types/-/useful-types-2.1.4.tgz#c3552235630760c4d7b11f262ce119aaf42fadc6"
+  integrity sha512-jX4toMDnFNoj2VrhbuM/ITAfWW+bezZgcZ/N7ktTCv12MUadcGH7PG/LccoDXtOp49jv/VesDw3pP4QZN85Ezg==
   dependencies:
-    "@types/react" ">=16.4.0"
     tslib "^1.9.3"
 
 "@types/json5@^0.0.29":
@@ -1206,7 +1205,7 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@>=16.4.0":
+"@types/react@*":
   version "16.9.15"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.15.tgz#aeabb7a50f96c9e31a16079ada20ede9ed602977"
   integrity sha512-WsmM1b6xQn1tG3X2Hx4F3bZwc2E82pJXt5OPs2YJgg71IzvUoKOSSSYOvLXYCg1ttipM+UuA4Lj3sfvqjVxyZw==
