@@ -24,6 +24,9 @@ function A({external, as, href, children}: Props) {
   const router = useRouter();
   const current = router.asPath === href;
 
+  if (!href) {
+    return <StyledA as="span">{children}</StyledA>;
+  }
   if (external) {
     return (
       <StyledA href={href} target="_blank">
@@ -31,7 +34,6 @@ function A({external, as, href, children}: Props) {
       </StyledA>
     );
   }
-  console.log(href);
 
   return (
     <Link as={as} href={href}>

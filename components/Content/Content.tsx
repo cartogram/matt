@@ -24,8 +24,7 @@ function Content({children, single}: Props) {
 }
 
 export const ContentInner = styled.div`
-  padding: ${props => props.theme.emSizes[18]}
-    ${props => props.theme.emSizes[2]};
+  padding: ${props => `0 0 ${props.theme.emSizes[10]}`};
   width: 100%;
 `;
 

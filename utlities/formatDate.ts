@@ -1,4 +1,11 @@
-export function formatDate(initialDate?: string) {
+interface Options {
+  prefix: string;
+}
+
+export function formatDate(
+  initialDate?: string,
+  {prefix}: Options = {prefix: ''},
+) {
   if (!initialDate) {
     return '';
   }
@@ -10,7 +17,7 @@ export function formatDate(initialDate?: string) {
     .toString()
     .slice(-2);
 
-  return `—${month} ${year}`;
+  return `${prefix}${month} ${year}`;
 }
 
 const monthNames = [
