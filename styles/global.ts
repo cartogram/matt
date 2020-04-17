@@ -14,18 +14,18 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fontFamilySans.name};
     font-weight: ${theme.fontFamilySans.weight};
     line-height: 1.6;
-    font-size: 2vw 
+    font-size: 2.4vw
 
     ${respondTo.sm`
-      font-size: 1.5vw
+      font-size: 2vw
     `}
 
     ${respondTo.md`
-      font-size: 1.2vw
+      font-size: 1.1vw
     `}
 
     ${respondTo.lg`
-      font-size: 1vw
+      font-size: 1.1vw
     `}
   }
 

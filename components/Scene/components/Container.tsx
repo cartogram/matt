@@ -5,6 +5,7 @@ import {fillFlex, fill} from '../../../styles';
 
 const StyledContainer = styled.div`
   ${fillFlex}
+  position: absolute;
   &:before {
     ${fill};
     content: '';

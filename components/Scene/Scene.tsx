@@ -26,7 +26,10 @@ function Scene({children}: Props) {
   }));
 
   const onScroll = useCallback(
-    event => set({st: event.target.scrollTop / 30}),
+    event => {
+      console.log(event.target.scrollTop);
+      return set({st: event.target.scrollTop / 30});
+    },
     [set],
   );
 
