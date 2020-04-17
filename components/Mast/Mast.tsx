@@ -9,7 +9,7 @@ interface MastProps {
 }
 
 const StyledMast = styled.div<Partial<MastProps>>`
-  padding: 10vw;
+  padding: 5vw;
   width: 100%;
   text-align: center;
   position: relative;
@@ -34,6 +34,7 @@ const StyledMast = styled.div<Partial<MastProps>>`
     border-radius: 3px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
     border-radius: ${props => props.theme.radius};
+    max-width: 1800px;
   }
 `;
 

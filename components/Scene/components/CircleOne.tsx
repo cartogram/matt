@@ -25,6 +25,7 @@ const CircleOne = styled(Animated)`
   max-height: 100ch;
   transform-origin: 50% 50%;
   animation: ${enter} ${theme.timing[3]} ${theme.easing.easeInOutQuint};
+  max-width: 1000px;
 `;
 
 function Animated({transform, className, svg}: any) {

@@ -46,6 +46,9 @@ const remSizes = sizes.map(remCalc);
 const siteBackgroundColor = colors.grey[0];
 
 const theme: DefaultTheme = {
+  headingMaxSize: '42px',
+  textMaxSize: '20px',
+  maxWidth: '2350px',
   siteBackgroundColor,
   siteBackground: `url(${images.background}) ${siteBackgroundColor}`,
   primaryColor: colors.black,

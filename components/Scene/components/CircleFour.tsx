@@ -20,6 +20,7 @@ const CircleFour = styled(Animated)`
   right: 0%;
   will-change: transform;
   width: 100vw;
+  max-width: 200px;
   padding: 0 25vw;
   z-index: 1;
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};

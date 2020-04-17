@@ -57,6 +57,7 @@ export const posts: Post[] = [
     title: 'Consciously Coupling',
     tags: [Tag.Project],
     date: '2016-10-19',
+    more: 'http://consciouslycoupling.com/',
   },
   {
     slug: '',
@@ -67,12 +68,12 @@ export const posts: Post[] = [
     date: '2016-12-22',
   },
   {
-    slug: '',
+    slug: 'lauren-wickware',
 
     title: 'Lauren Wickware',
     tags: [Tag.Project],
     date: '2015-01-16',
-    permalink: 'http://laurenwickware.com',
+    more: 'http://laurenwickware.com',
   },
 ];
 

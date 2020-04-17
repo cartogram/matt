@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import {formatDate} from '../utlities/formatDate';
 
 import {posts} from '../content';
 import {
@@ -12,6 +11,7 @@ import {
   LoadBar,
   A,
   Mast,
+  Header,
 } from '../components';
 // eslint-disable-next-line shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
@@ -20,12 +20,12 @@ interface Props {
   post: any;
 }
 function Post({post}: Props) {
-  const {title, heading, content, date, color, slug, more} = post || {};
+  const {title, heading, content, color, slug, more} = post || {};
 
   const contentMarkup = post ? (
     <Content>
+      <Header />
       <Mast color={color} video={`static/videos/${slug}.mp4`} />
-
       <ContentInner>
         <RawHtml>
           <Heading>
@@ -35,10 +35,8 @@ function Post({post}: Props) {
           </Heading>
           <ReactMarkdown escapeHtml={false} source={content} />
           <Footnote>
-            Completed {formatDate(date)}
-            <br />
-            <A external href={more}>
-              View live
+            <A variant="large-button" external href={more}>
+              View live website <span>↗</span>
             </A>
           </Footnote>
         </RawHtml>

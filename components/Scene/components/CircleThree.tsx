@@ -19,6 +19,7 @@ const CircleThree = styled(Animated)`
   will-change: transform;
   height: 40vh;
   z-index: 1;
+  max-width: 500px;
 
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};
 `;

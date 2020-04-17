@@ -18,6 +18,7 @@ const CircleTwo = styled(Animated)`
   left: 10%;
   will-change: transform;
   height: 40vh;
+  max-width: 500px;
   animation: ${enter} ${theme.timing[6]} ${theme.easing.easeInOutQuint};
 `;
 

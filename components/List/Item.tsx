@@ -14,11 +14,13 @@ const StyledItem = styled.li`
 
   > a {
     flex: 1;
+    width: 100%;
   }
 
   ${respondTo.md`
   > a {
     flex: initial;
+    width: auto;
   }
   `}
 `;
