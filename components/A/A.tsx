@@ -27,6 +27,7 @@ function A({external, as, href, children}: Props) {
   if (!href) {
     return <StyledA as="span">{children}</StyledA>;
   }
+
   if (external) {
     return (
       <StyledA href={href} target="_blank">

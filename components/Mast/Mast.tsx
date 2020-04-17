@@ -5,16 +5,31 @@ import styled from 'styled-components';
 interface MastProps {
   offSet?: boolean;
   video: string;
+  color?: string;
 }
 
-const StyledMast = styled.div`
+const StyledMast = styled.div<Partial<MastProps>>`
   padding: 10vw;
   width: 100%;
   text-align: center;
-  background: #90ffed40;
-  margin: 0 0 10em;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background: ${props => props.color || '#90ffed40'};
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    bottom: 0;
+    transform: translateY(-25%);
+  }
 
   video {
+    background: ${props =>
+      props.color ? props.color.slice(0, -2) : '#90ffed'};
+    position: relative;
     width: 100%;
     border-radius: 3px;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
@@ -22,9 +37,9 @@ const StyledMast = styled.div`
   }
 `;
 
-export default function Mast({video}: MastProps) {
+export default function Mast({video, color}: MastProps) {
   return (
-    <StyledMast>
+    <StyledMast color={color}>
       <video autoPlay loop>
         <source src={video} type="video/mp4" />
       </video>

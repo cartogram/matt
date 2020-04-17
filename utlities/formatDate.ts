@@ -12,10 +12,7 @@ export function formatDate(
 
   const date = new Date(initialDate);
   const month = monthNames[date.getMonth()];
-  const year = date
-    .getFullYear()
-    .toString()
-    .slice(-2);
+  const year = date.getFullYear().toString();
 
   return `${prefix}${month} ${year}`;
 }

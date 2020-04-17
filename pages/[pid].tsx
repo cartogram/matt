@@ -1,6 +1,4 @@
 import React from 'react';
-// import {useRouter} from 'next/router';
-import {ThemeProvider} from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import {formatDate} from '../utlities/formatDate';
 
@@ -8,8 +6,6 @@ import {posts} from '../content';
 import {
   Heading,
   RawHtml,
-  Block,
-  Row,
   Content,
   ContentInner,
   Footnote,
@@ -19,52 +15,40 @@ import {
 } from '../components';
 // eslint-disable-next-line shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
-import {theme} from '../styles';
 
 interface Props {
   post: any;
 }
 function Post({post}: Props) {
-  const {title, heading, content, date, color} = post || {};
+  const {title, heading, content, date, color, slug, more} = post || {};
 
   const contentMarkup = post ? (
-    <Content single>
-      <Mast video="static/videos/lamas.mp4" />
+    <Content>
+      <Mast color={color} video={`static/videos/${slug}.mp4`} />
 
       <ContentInner>
-        <Row offSet hard>
-          <Block offSet hard>
-            <Heading>
-              <A href="" as="span">
-                {heading || title}
-              </A>
-            </Heading>
-          </Block>
-        </Row>
         <RawHtml>
+          <Heading>
+            <A href="" as="span">
+              {heading || title}
+            </A>
+          </Heading>
           <ReactMarkdown escapeHtml={false} source={content} />
+          <Footnote>
+            Completed {formatDate(date)}
+            <br />
+            <A external href={more}>
+              View live
+            </A>
+          </Footnote>
         </RawHtml>
-        <Row offSet hard>
-          <Block offSet hard>
-            <Footnote>{formatDate(date)}</Footnote>
-          </Block>
-        </Row>
       </ContentInner>
     </Content>
   ) : (
     <LoadBar />
   );
 
-  return (
-    <ThemeProvider
-      theme={{
-        ...theme,
-        ...overrideThemeColor(color),
-      }}
-    >
-      <Container>{contentMarkup}</Container>
-    </ThemeProvider>
-  );
+  return <Container>{contentMarkup}</Container>;
 }
 
 export default Post;
@@ -79,14 +63,3 @@ Post.getInitialProps = async (ctx: any) => {
 
   return {post};
 };
-
-function overrideThemeColor(color?: string) {
-  if (!color) {
-    return {};
-  }
-
-  // return {
-  //   siteBackground: color,
-  //   siteBackgroundColor: color,
-  // };
-}

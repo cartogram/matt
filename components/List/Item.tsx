@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {respondTo} from '../../styles/utils';
+import {useMedia} from '@shopify/react-hooks';
+import {respondTo, breakpoints} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
@@ -9,10 +10,16 @@ import {formatDate} from '../../utlities/formatDate';
 const StyledItem = styled.li`
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  > a {
+    flex: 1;
+  }
 
   ${respondTo.md`
-    flex-direction: row;
+  > a {
+    flex: initial;
+  }
   `}
 `;
 
@@ -36,10 +43,12 @@ function Item({
   small,
   item: {title, slug, tags, date, permalink, onGoing, label},
 }: Props) {
-  const formattedDate = date ? formatDate(date) : '';
+  const isSmallScreen = useMedia(`(max-width: ${breakpoints.md})`);
+
+  const formattedDate = date ? formatDate(date, {prefix: '–'}) : '';
   const formattedOngoing = onGoing ? '→Now' : '';
   const formattedTags = tags ? tags : [];
-  const tagsMarkup = (
+  const tagsMarkup = isSmallScreen ? null : (
     <Footnote>
       {formattedTags.join(', ')}
       {formattedDate}
