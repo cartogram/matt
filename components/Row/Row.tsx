@@ -14,11 +14,8 @@ const Row = styled.div<RowProps>`
       ? `${props.theme.emSizes[16]} 0 ${props.theme.emSizes[12]}`
       : `0 0 ${props.theme.emSizes[12]}`}};
   width: 100%;
+  max-width: 2350px;
+  margin: auto;
 `;
 
 export default Row;
-
-// padding: ${props =>
-//   props.hard
-//     ? `0 ${props.theme.emSizes[14]}`
-//     : `0 ${props.theme.emSizes[14]} ${props.theme.emSizes[12]}`};

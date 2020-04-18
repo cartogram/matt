@@ -5,12 +5,14 @@ import {respondTo} from '../../styles/utils';
 const StyledRawHtml = styled.article`
   margin: auto;
   display: grid;
-  padding: 0 ${props => props.theme.emSizes[14]};
+  padding: 0 ${props => props.theme.emSizes[10]};
 
   .rh__grid {
     grid-gap: 30px;
     display: grid;
     padding: ${props => props.theme.emSizes[14]} 0;
+    max-width: 2100px;
+    margin: auto;
   }
 
   img {
@@ -50,9 +52,10 @@ const StyledRawHtml = styled.article`
   p {
     font-weight: normal;
     display: block;
-    text-indent: ${props => props.theme.emSizes[10]};
+    // text-indent: ${props => props.theme.emSizes[10]};
     padding-bottom: ${props => props.theme.emSizes[3]};
     font-size: ${props => props.theme.fontSizes[1]};
+    max-width: 1000px;
 
     position: relative;
     line-height: 1.4;
@@ -66,6 +69,16 @@ const StyledRawHtml = styled.article`
       width: 50%;
       left: 50%;
   `}
+
+    ${respondTo.lg`
+  font-size: ${(props: any) => props.theme.headingMaxSize};
+`}
+  }
+
+
+${respondTo.lg`
+font-size: ${(props: any) => props.theme.headingMaxSize};
+`}
   }
 
   > span,

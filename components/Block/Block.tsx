@@ -7,10 +7,11 @@ interface BlockProps {
 }
 
 const Block = styled.div<BlockProps>`
-  padding: ${props => (props.hard ? '0' : '0 10vw 5vh 5vw')};
+  padding: ${props => (props.hard ? '0' : '0 3.5em 5vh ')};
   width: 100%;
+  max-width: ${(props: BlockProps) => (props.offSet ? `1300px;` : `100%;`)};
   ${respondTo.md`
-    width: ${(props: BlockProps) => (props.offSet ? `55vw;` : `85vw;`)};
+    width: ${(props: BlockProps) => (props.offSet ? `70vw;` : `100%;`)};
   `}
   }
 `;

@@ -7,6 +7,9 @@ interface Breakpoint {
 declare module 'styled-components' {
   interface Tyography {}
   export interface DefaultTheme {
+    headingMaxSize: string;
+    textMaxSize: string;
+    maxWidth: string;
     emSizes: string[];
     remSizes: string[];
     siteBackgroundColor: string;
