@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 import {animated} from 'react-spring';
+
 import {theme} from '../../../styles';
 
 const enter = keyframes`

@@ -1,5 +1,7 @@
 import styled, {keyframes} from 'styled-components';
+
 import {theme} from '../../../styles';
+
 import Animated from './Animated';
 
 const enter = keyframes`

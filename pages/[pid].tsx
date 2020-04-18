@@ -13,7 +13,7 @@ import {
   Mast,
   Header,
 } from '../components';
-// eslint-disable-next-line shopify/strict-component-boundaries
+// eslint-disable-next-line @shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
 
 interface Props {

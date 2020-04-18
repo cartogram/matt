@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {respondTo} from '../../styles/utils';
 
 interface Props {
-  level?: Number;
+  level?: number;
 }
 
 const Heading = styled.h1<Props>`

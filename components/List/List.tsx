@@ -1,6 +1,7 @@
 import React from 'react';
 import {Props} from '@shopify/useful-types';
 import styled from 'styled-components';
+
 import Item from './Item';
 
 const StyledList = styled.ul`
