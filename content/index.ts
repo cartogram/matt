@@ -58,6 +58,7 @@ export const posts: Post[] = [
     tags: [Tag.Project],
     date: '2016-10-19',
     more: 'http://consciouslycoupling.com/',
+    content: require(`./consciously-coupling.md`).default,
   },
   {
     slug: '',
@@ -74,6 +75,7 @@ export const posts: Post[] = [
     tags: [Tag.Project],
     date: '2015-01-16',
     more: 'http://laurenwickware.com',
+    content: require(`./lauren-wickware.md`).default,
   },
 ];
 

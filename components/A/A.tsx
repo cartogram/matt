@@ -76,9 +76,9 @@ function A({external, as, href, children, ...rest}: Props) {
 
   if (variant === 'large-button') {
     return (
-      <Link as={as} href={href}>
-        <StyledLargeButton>{children}</StyledLargeButton>
-      </Link>
+      <StyledLargeButton href={href} target="_blank">
+        {children}
+      </StyledLargeButton>
     );
   }
 
