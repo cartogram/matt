@@ -7,13 +7,11 @@ import {
   RawHtml,
   Content,
   ContentInner,
-  Text,
+  Meta,
   LoadBar,
   A,
   Mast,
   Header,
-  Row,
-  Block,
 } from '../components';
 // eslint-disable-next-line @shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
@@ -22,12 +20,14 @@ interface Props {
   post: any;
 }
 function Post({post}: Props) {
-  const {title, heading, content, color, slug, more} = post || {};
+  const {title, heading, content, color, video} = post || {};
+
+  const videoSource = video ? `static/videos/${video}` : '';
 
   const contentMarkup = post ? (
     <Content>
       <Header />
-      <Mast color={color} video={`static/videos/${slug}.mp4`} />
+      <Mast color={color} video={videoSource} />
       <ContentInner>
         <RawHtml>
           <Heading>
@@ -35,15 +35,7 @@ function Post({post}: Props) {
           </Heading>
           <ReactMarkdown escapeHtml={false} source={content} />
         </RawHtml>
-        <Row offSet>
-          <Block hard offSet>
-            <Text>
-              <A external href={more}>
-                View live website
-              </A>
-            </Text>
-          </Block>
-        </Row>
+        <Meta post={post} />
       </ContentInner>
     </Content>
   ) : (
