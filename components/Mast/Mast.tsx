@@ -39,11 +39,10 @@ const StyledMast = styled.div<Partial<MastProps>>`
 `;
 
 export default function Mast({video, color}: MastProps) {
-  return (
-    <StyledMast color={color}>
-      <video autoPlay loop>
-        <source src={video} type="video/mp4" />
-      </video>
-    </StyledMast>
-  );
+  const videoMarkup = video ? (
+    <video autoPlay loop>
+      <source src={video} type="video/mp4" />
+    </video>
+  ) : null;
+  return <StyledMast color={color}>{videoMarkup}</StyledMast>;
 }
