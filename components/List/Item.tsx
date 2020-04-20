@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useMedia} from '@shopify/react-hooks';
+
 import {respondTo, breakpoints} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';

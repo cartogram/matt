@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {twoLiner, title, links, posts} from '../content';
 import {
   Text,

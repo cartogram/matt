@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {useSpring, interpolate} from 'react-spring';
+
 import {CircleOne, CircleTwo, CircleThree, Container} from './components';
 import {CircleSvg, Fill} from './svgs';
 

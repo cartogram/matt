@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import {Heading, A, Block, Row} from '../components';
+
 import Heading from '../Heading';
 import A from '../A';
 import Block from '../Block';
