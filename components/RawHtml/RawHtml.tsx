@@ -76,6 +76,7 @@ const StyledRawHtml = styled.article`
   }
 
   > span,
+  pre,
   h1 {
     padding-bottom: ${props => props.theme.emSizes[1]};
 

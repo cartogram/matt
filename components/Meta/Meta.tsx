@@ -1,0 +1,38 @@
+import styled from 'styled-components';
+import React from 'react';
+
+import {respondTo} from '../../styles/utils/responsive';
+import Text from '../Text';
+import A from '../A';
+
+interface Props {
+  post: any;
+}
+
+const StyledMata = styled.div<Partial<Props>>`
+  box-sizing: border-box;
+  padding: 0 ${props => props.theme.emSizes[10]};
+  position: relative;
+  display: flex;
+  ${respondTo.md`
+    justify-content: flex-end;
+    > * {
+      display: block;
+      width: 50%;
+    }
+  `}
+`;
+
+function Meta({post}: Props) {
+  return (
+    <StyledMata>
+      <Text>
+        <A external href={post.more}>
+          View live website
+        </A>
+      </Text>
+    </StyledMata>
+  );
+}
+
+export default Meta;
