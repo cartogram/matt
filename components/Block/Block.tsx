@@ -10,10 +10,12 @@ interface BlockProps {
 const Block = styled.div<BlockProps>`
   padding: ${props => (props.hard ? '0' : '0 3.5em 5vh ')};
   width: 100%;
-  max-width: ${(props: BlockProps) => (props.offSet ? `1300px;` : `100%;`)};
   ${respondTo.md`
-    width: ${(props: BlockProps) => (props.offSet ? `70vw;` : `100%;`)};
+    width: ${(props: BlockProps) => (props.offSet ? `50%;` : `100%;`)};
   `}
+    p {
+      max-width: ${(props: BlockProps) => (props.offSet ? `800px` : `100%;`)};
+    }
   }
 `;
 export default Block;

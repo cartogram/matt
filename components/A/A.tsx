@@ -57,7 +57,7 @@ const StyledLargeButton = styled.a`
     padding: 0;
     font-size: 140%;
     top: 50%;
-    transform: translate(-100%, -50%);
+    transform: translate(-50%, -50%);
   }
 `;
 

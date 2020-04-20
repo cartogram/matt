@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     `}
 
     ${respondTo.lg`
-      font-size: 1.1vw
+      font-size: 22px
     `}
   }
 

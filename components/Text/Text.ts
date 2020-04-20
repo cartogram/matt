@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
-import {respondTo} from '../../styles/utils';
+// import {respondTo} from '../../styles/utils';
 
+//   ${respondTo.lg`
+//   font-size: ${(props: any) => props.theme.headingMaxSize};
+// `}
 const Text = styled.p`
   font-weight: normal;
   display: block;
@@ -12,10 +15,6 @@ const Text = styled.p`
   &:first-child {
     text-indent: 0;
   }
-
-  ${respondTo.lg`
-  font-size: ${(props: any) => props.theme.headingMaxSize};
-`}
 `;
 
 export default Text;

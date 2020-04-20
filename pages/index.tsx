@@ -45,10 +45,7 @@ function Home() {
                 <A external href="http://cartogram.ca">
                   Cartogram
                 </A>{' '}
-                and Catalyst Workshop.{' '}
-                <A variant="button" href="static/cv.pdf">
-                  View more
-                </A>
+                and Catalyst Workshop. <A href="static/cv.pdf">View more</A>
               </Footnote>
               <List inline small items={links} />
             </Block>
