@@ -5,6 +5,7 @@ export const lastName = 'Seccafien';
 
 interface Post {
   slug: string;
+  video?: string;
   title: string;
   tags?: Tag[];
   date: string;
@@ -31,6 +32,7 @@ export const posts: Post[] = [
     date: '2017-04-01',
     onGoing: true,
     content: require(`./fondfolio.md`).default,
+    video: 'fondfolio.mp4',
     color: '#41aeff36',
   },
   {
@@ -41,6 +43,7 @@ export const posts: Post[] = [
     color: '#ff414140',
     content: require(`./lamas.md`).default,
     more: 'https://lamas.us',
+    video: 'lamas.mp4',
     // permalink: ,
   },
 
@@ -59,6 +62,7 @@ export const posts: Post[] = [
     date: '2016-10-19',
     more: 'http://consciouslycoupling.com/',
     content: require(`./consciously-coupling.md`).default,
+    video: 'consciously-coupling.mp4',
   },
   {
     slug: '',
@@ -76,6 +80,7 @@ export const posts: Post[] = [
     date: '2015-01-16',
     more: 'http://laurenwickware.com',
     content: require(`./lauren-wickware.md`).default,
+    video: 'lauren-wickware.mp4',
   },
 ];
 
