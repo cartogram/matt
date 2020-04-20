@@ -97,7 +97,9 @@ function A({external, as, href, children, ...rest}: Props) {
 
   return (
     <Link as={as} href={href}>
-      <StyledA current={current}>{children}</StyledA>
+      <StyledA current={current} href={href}>
+        {children}
+      </StyledA>
     </Link>
   );
 }
