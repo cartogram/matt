@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-family: ${theme.fontFamilySans.name};
     font-weight: ${theme.fontFamilySans.weight};
-    line-height: 1.6;
+    line-height: 1.4;
     font-size: 2.4vw
 
     ${respondTo.sm`

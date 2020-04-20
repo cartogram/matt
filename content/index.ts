@@ -96,15 +96,15 @@ export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>
 
 export const links = [
   {
+    title: 'Full CV',
+    permalink: 'static/cv.pdf',
+  },
+  {
     title: 'Contact',
     permalink: 'mailto:mseccafien@gmail.com',
     // label: 'email',
   },
-  // {
-  //   title: 'CV',
-  //   permalink: 'static/cv.pdf',
-  // label: 'pdf',
-  // },
+
   {
     title: 'Github',
     permalink: 'https://github.com/cartogram',

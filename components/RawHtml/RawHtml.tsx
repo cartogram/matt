@@ -53,7 +53,6 @@ const StyledRawHtml = styled.article`
   p {
     font-weight: normal;
     display: block;
-    // text-indent: ${props => props.theme.emSizes[10]};
     padding-bottom: ${props => props.theme.emSizes[3]};
     font-size: ${props => props.theme.fontSizes[1]};
     max-width: 1000px;

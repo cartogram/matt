@@ -35,17 +35,21 @@ function Home() {
             <Block offSet>
               <Text dangerouslySetInnerHTML={{__html: twoLiner}} />
               <Footnote>
-                Currently Senior Developer on the{' '}
+                Currently working on Incident Response and Resiliency at Shopify
+                <br />
+                Previously Senior Front-end Developer on the{' '}
                 <A external href="http://github.com/shopify/web-foundation">
                   Web Foundation Team
-                </A>{' '}
-                at Shopify.
+                </A>
                 <br />
-                Previously at{' '}
+                Co-founder of{' '}
                 <A external href="http://cartogram.ca">
                   Cartogram
                 </A>{' '}
-                and Catalyst Workshop. <A href="static/cv.pdf">View more</A>
+                and{' '}
+                <A external href="http://fondfolio.com">
+                  Fondfolio
+                </A>
               </Footnote>
               <List inline small items={links} />
             </Block>
