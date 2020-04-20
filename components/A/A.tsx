@@ -12,12 +12,13 @@ type Props = {
 } & LinkProps;
 
 const StyledA = styled.a<{current?: boolean}>`
-  cursor: ${({current}) => (current ? 'default' : 'pointer')};
+  cursor: ${({href, current}) => (current || !href ? 'default' : 'pointer')};
   color: ${props => props.theme.primaryColor};
   text-decoration: underline;
 
   &:hover {
-    text-decoration: ${({current}) => (current ? 'underline' : 'none')};
+    text-decoration: ${({current, href}) =>
+      current || !href ? 'underline' : 'none'};
   }
 `;
 

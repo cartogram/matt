@@ -10,7 +10,6 @@ const StyledHeader = styled.div<Props>`
   font-weight: normal;
   position: fixed;
   left: 0;
-  right: 0;
   z-index: 1;
   padding: ${props => `${props.theme.emSizes[2]} ${props.theme.emSizes[3]}`};
 `;

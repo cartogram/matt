@@ -7,11 +7,13 @@ import {
   RawHtml,
   Content,
   ContentInner,
-  Footnote,
+  Text,
   LoadBar,
   A,
   Mast,
   Header,
+  Row,
+  Block,
 } from '../components';
 // eslint-disable-next-line @shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
@@ -29,17 +31,19 @@ function Post({post}: Props) {
       <ContentInner>
         <RawHtml>
           <Heading>
-            <A href="" as="span">
-              {heading || title}
-            </A>
+            <A href="">{heading || title}</A>
           </Heading>
           <ReactMarkdown escapeHtml={false} source={content} />
-          <Footnote>
-            <A variant="large-button" external href={more}>
-              View live website <span>↗</span>
-            </A>
-          </Footnote>
         </RawHtml>
+        <Row offSet>
+          <Block hard offSet>
+            <Text>
+              <A external href={more}>
+                View live website
+              </A>
+            </Text>
+          </Block>
+        </Row>
       </ContentInner>
     </Content>
   ) : (
