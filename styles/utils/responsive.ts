@@ -11,8 +11,8 @@ interface RespondTo {
 export const breakpoints: Breakpoint = {
   xs: '480px',
   sm: '800px',
-  md: '1000px',
-  lg: '1200px',
+  md: '1250px',
+  lg: '1850px',
 };
 
 export const respondTo: RespondTo = Object.keys(breakpoints).reduce(

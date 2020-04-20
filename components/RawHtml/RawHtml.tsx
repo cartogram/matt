@@ -71,15 +71,8 @@ const StyledRawHtml = styled.article`
       left: 50%;
   `}
 
-    ${respondTo.lg`
-  font-size: ${(props: any) => props.theme.headingMaxSize};
-`}
   }
 
-
-${respondTo.lg`
-font-size: ${(props: any) => props.theme.headingMaxSize};
-`}
   }
 
   > span,
