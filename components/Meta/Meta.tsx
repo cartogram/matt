@@ -24,7 +24,7 @@ const StyledMata = styled.div<Partial<Props>>`
 `;
 
 function Meta({post}: Props) {
-  return (
+  return post.more ? (
     <StyledMata>
       <Text>
         <A external href={post.more}>
@@ -32,7 +32,7 @@ function Meta({post}: Props) {
         </A>
       </Text>
     </StyledMata>
-  );
+  ) : null;
 }
 
 export default Meta;

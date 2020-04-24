@@ -26,6 +26,21 @@ enum Tag {
 
 export const posts: Post[] = [
   {
+    slug: 'learning-from-incidents',
+    title: 'Learning From Incidents',
+    tags: [Tag.Writing],
+    date: '2020-04-24',
+    content: require(`./rca.md`).default,
+  },
+  // {
+  //   slug: 'resiliency',
+  //   title: 'On moving to resiliency',
+  //   tags: [Tag.Writing],
+  //   date: '2020-04-20',
+  //   content: require(`./resiliency.md`).default,
+  //   color: '#41aeff36',
+  // },
+  {
     slug: 'fondfolio',
     title: 'Fondfolio',
     tags: [Tag.Project],

@@ -17,7 +17,7 @@ const StyledMast = styled.div<Partial<MastProps>>`
   &::before {
     content: '';
     position: absolute;
-    background: ${props => props.color || '#90ffed40'};
+    background: ${props => props.color || 'none'};
     top: 0;
     left: 0;
     right: 0;
@@ -27,8 +27,7 @@ const StyledMast = styled.div<Partial<MastProps>>`
   }
 
   video {
-    background: ${props =>
-      props.color ? props.color.slice(0, -2) : '#90ffed'};
+    background: ${props => (props.color ? props.color.slice(0, -2) : 'none')};
     position: relative;
     width: 100%;
     border-radius: 3px;

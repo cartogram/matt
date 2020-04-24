@@ -6,7 +6,8 @@ import {respondTo} from '../../styles/utils';
 const StyledRawHtml = styled.article`
   margin: auto;
   display: grid;
-  padding: 0 ${props => props.theme.emSizes[10]};
+  padding: ${props =>
+    `0 ${props.theme.emSizes[10]} ${props.theme.emSizes[12]}`};
 
   .rh__grid {
     grid-gap: 30px;
@@ -50,9 +51,9 @@ const StyledRawHtml = styled.article`
     }
   `}
 
+  li,
   p {
     font-weight: normal;
-    display: block;
     padding-bottom: ${props => props.theme.emSizes[3]};
     font-size: ${props => props.theme.fontSizes[1]};
     max-width: 1000px;
@@ -74,17 +75,28 @@ const StyledRawHtml = styled.article`
 
   }
 
+
+
   > span,
   pre,
+  h2,
   h1 {
     padding-bottom: ${props => props.theme.emSizes[1]};
+    font-size: ${props => props.theme.fontSizes[1]};
 
     ${respondTo.md`
-    position: relative;
-    width: 50%;
-    left: 50%;
-`}
+      position: relative;
+      width: 50%;
+      left: 50%;
+    `}
   }
+
+  h2 {
+    text-decoration: underline;
+  }
+
+
+
 `;
 
 interface Props {
