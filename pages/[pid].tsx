@@ -3,15 +3,13 @@ import ReactMarkdown from 'react-markdown';
 
 import {posts} from '../content';
 import {
-  Heading,
   RawHtml,
   Content,
   ContentInner,
   Meta,
   LoadBar,
-  A,
   Mast,
-  Header,
+  FrontMatter,
 } from '../components';
 // eslint-disable-next-line @shopify/strict-component-boundaries
 import {Container} from '../components/Scene/components';
@@ -26,13 +24,10 @@ function Post({post}: Props) {
 
   const contentMarkup = post ? (
     <Content>
-      <Header />
       <Mast color={color} video={videoSource} />
       <ContentInner>
+        <FrontMatter title={title || heading} />
         <RawHtml>
-          <Heading>
-            <A href="">{heading || title}</A>
-          </Heading>
           <ReactMarkdown escapeHtml={false} source={content} />
         </RawHtml>
         <Meta post={post} />

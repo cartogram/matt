@@ -10,5 +10,5 @@ export {default as Row} from './Row';
 export {default as RawHtml} from './RawHtml';
 export {default as LoadBar} from './LoadBar';
 export {default as Mast} from './Mast';
-export {default as Header} from './Header';
 export {default as Meta} from './Meta';
+export {default as FrontMatter} from './FrontMatter';
