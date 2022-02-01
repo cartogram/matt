@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {respondTo} from '../../styles/utils';
+import {respond} from '../../styles/utils';
 
 const StyledRawHtml = styled.article`
   margin: auto;
@@ -23,7 +23,7 @@ const StyledRawHtml = styled.article`
     border-radius: ${props => props.theme.radius};
   }
 
-  ${respondTo.md`
+  @media ${respond.md} {
     .rh__grid {
       grid-template-columns: 0.8fr 0.8fr 2fr 0.8fr 0.5fr 150px;
     }
@@ -49,7 +49,7 @@ const StyledRawHtml = styled.article`
         grid-column: 5/7;
       }
     }
-  `}
+  }
 
   li,
   p {
@@ -66,10 +66,10 @@ const StyledRawHtml = styled.article`
       text-indent: 0;
     }
 
-    ${respondTo.md`
+    @media ${respond.md} {
       width: 50%;
       left: 50%;
-  `}
+    }
 
   }
 
@@ -84,11 +84,11 @@ const StyledRawHtml = styled.article`
     padding-bottom: ${props => props.theme.emSizes[1]};
     font-size: ${props => props.theme.fontSizes[1]};
 
-    ${respondTo.md`
+    @media ${respond.md} {
       position: relative;
       width: 50%;
       left: 50%;
-    `}
+    }
   }
 
   h2 {

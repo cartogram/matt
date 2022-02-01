@@ -1,6 +1,6 @@
 export {default as reset} from './reset';
 export {emBase, emCalc, remCalc} from './units';
-export {respondTo, breakpoints} from './responsive';
+export {respond, breakpoints} from './responsive';
 
 export const fill = `
   position: fixed;

@@ -107,12 +107,13 @@ export const oneLiner = `
 export const currently = `
   Currently working at Shopify`;
 
-export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens, sometimes command lines.`;
+export const twoLiner = `Berlin-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens.`;
+// export const twoLiner = `Toronto-based <strike>designer</strike> developer,<br/>builder of interfaces, usually for screens, sometimes command lines.`;
 
 export const links = [
   {
     title: 'Full CV',
-    permalink: 'static/cv.pdf',
+    permalink: 'cv.pdf',
   },
   {
     title: 'Contact',
@@ -130,3 +131,14 @@ export const links = [
   //   permalink: 'tel:+1',
   // },
 ];
+
+export const tags = [Tag.Writing, Tag.Project, Tag.Owner];
+export const dates = posts
+  .reduce<string[]>((acc, post) => {
+    if (post.date) {
+      acc.push(post.date);
+    }
+
+    return acc;
+  }, [])
+  .filter(x => x);

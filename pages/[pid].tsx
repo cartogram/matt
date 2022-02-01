@@ -5,7 +5,6 @@ import {posts} from '../content';
 import {
   RawHtml,
   Content,
-  ContentInner,
   Meta,
   LoadBar,
   Mast,
@@ -20,18 +19,16 @@ interface Props {
 function Post({post}: Props) {
   const {title, heading, content, color, video} = post || {};
 
-  const videoSource = video ? `static/videos/${video}` : '';
+  const videoSource = video ? `videos/${video}` : '';
 
   const contentMarkup = post ? (
     <Content>
       <Mast color={color} video={videoSource} />
-      <ContentInner>
-        <FrontMatter title={title || heading} />
-        <RawHtml>
-          <ReactMarkdown escapeHtml={false} source={content} />
-        </RawHtml>
-        <Meta post={post} />
-      </ContentInner>
+      <FrontMatter title={title || heading} />
+      <RawHtml>
+        <ReactMarkdown escapeHtml={false} source={content} />
+      </RawHtml>
+      <Meta post={post} />
     </Content>
   ) : (
     <LoadBar />

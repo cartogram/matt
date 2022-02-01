@@ -1,5 +1,4 @@
 import React from 'react';
-import {Props} from '@shopify/useful-types';
 import styled from 'styled-components';
 
 import Item from './Item';
@@ -10,21 +9,23 @@ const StyledList = styled.ul`
   flex-direction: ${(props: Pick<ListProps, 'inline'>) =>
     props.inline ? 'row' : 'column'};
   > * {
-    padding: ${props =>
-      props.inline ? `0 ${props.theme.fontSizes[0]} 0 0` : '0'};
+    padding: ${props => `0 ${props.theme.fontSizes[0]} 0 0`}};
   }
 `;
 
 interface ListProps {
-  items: Props<typeof Item>['item'][];
+  items: string[] | React.ComponentProps<typeof Item>['item'][];
   inline?: boolean;
   small?: boolean;
 }
 
 function List({items, inline, small}: ListProps) {
-  const itemsMarkup = items.map(item => (
-    <Item small={small} key={item.title} item={item} />
-  ));
+  const itemsMarkup = items.map(item => {
+    if (typeof item === 'string') {
+      return <Item key={item} item={{title: item}} small={small} />;
+    }
+    return <Item active small={small} key={item.title} item={item} />;
+  });
 
   return <StyledList inline={inline}>{itemsMarkup}</StyledList>;
 }

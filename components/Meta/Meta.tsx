@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 
-import {respondTo} from '../../styles/utils/responsive';
+import {respond} from '../../styles/utils/responsive';
 import Text from '../Text';
 import A from '../A';
 
@@ -14,13 +14,14 @@ const StyledMata = styled.div<Partial<Props>>`
   padding: 0 ${props => props.theme.emSizes[10]};
   position: relative;
   display: flex;
-  ${respondTo.md`
+
+  @media ${respond.md} {
     justify-content: flex-end;
     > * {
       display: block;
       width: 50%;
     }
-  `}
+  }
 `;
 
 function Meta({post}: Props) {

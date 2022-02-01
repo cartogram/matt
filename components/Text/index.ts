@@ -1,3 +1,4 @@
-import Text from './Text';
+import Text, {TextPadding} from './Text';
 
 export default Text;
+export {TextPadding};

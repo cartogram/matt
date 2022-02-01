@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-import {respondTo} from '../../styles/utils';
+import {respond} from '../../styles/utils';
 
 interface BlockProps {
+  stick?: boolean;
   offSet?: boolean;
   hard?: boolean;
 }
@@ -10,12 +11,18 @@ interface BlockProps {
 const Block = styled.div<BlockProps>`
   padding: ${props => (props.hard ? '0' : '0 3.5em 5vh ')};
   width: 100%;
-  ${respondTo.md`
+  @media ${respond.md} {
     width: ${(props: BlockProps) => (props.offSet ? `50%;` : `100%;`)};
-  `}
-    p {
-      max-width: ${(props: BlockProps) => (props.offSet ? `800px` : `100%;`)};
-    }
   }
+
+  @media ${respond.lg} {
+    flex-direction: row;
+  }
+
+  p {
+    max-width: ${(props: BlockProps) => (props.offSet ? `800px` : `100%;`)};
+  }
+
+  ${(props: BlockProps) => props.stick && `position: sticky; top: 0;`}
 `;
 export default Block;

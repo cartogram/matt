@@ -2,28 +2,36 @@ import React from 'react';
 import styled from 'styled-components';
 import {useMedia} from '@shopify/react-hooks';
 
-import {respondTo, breakpoints} from '../../styles/utils';
+import {respond} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
 import {formatDate} from '../../utlities/formatDate';
 
-const StyledItem = styled.li`
+interface Props {
+  active?: boolean;
+}
+const StyledItem = styled.li<Props>`
   list-style: none;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
 
   > a {
     flex: 1;
     width: 100%;
+
+    color: ${props =>
+      props.active ? /* props.theme.colors.primary */ 'red' : 'inherit'};
   }
 
-  ${respondTo.md`
-  > a {
-    flex: initial;
-    width: auto;
+  @media ${respond.md} {
+    > a {
+      flex: initial;
+      width: auto;
+    }
   }
-  `}
 `;
 
 interface Item {
@@ -34,7 +42,8 @@ interface Item {
   label?: string;
   permalink?: string;
   onGoing?: boolean;
-  small?: boolean;
+
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 interface Props {
@@ -44,9 +53,10 @@ interface Props {
 
 function Item({
   small,
-  item: {title, slug, tags, date, permalink, onGoing, label},
+  active,
+  item: {title, slug, tags, date, permalink, onGoing, label, onClick},
 }: Props) {
-  const isSmallScreen = useMedia(`(max-width: ${breakpoints.md})`);
+  const isSmallScreen = useMedia(respond.md);
 
   const formattedDate = date ? formatDate(date, {prefix: '–'}) : '';
   const formattedOngoing = onGoing ? '→Now' : '';
@@ -66,17 +76,19 @@ function Item({
     <Heading>{title}</Heading>
   );
 
+  const linkProps = {};
+
   const linkMarkup = permalink ? (
     <A external href={permalink}>
       {textMarkup}
     </A>
   ) : (
-    <A href="/[pid]" as={`/${slug}`}>
+    <A href="/[pid]" as={`/${slug}`} onClick={onClick}>
       {textMarkup}
     </A>
   );
   return (
-    <StyledItem>
+    <StyledItem active={active}>
       {linkMarkup}
       {tagsMarkup}
       {labelMarkup}

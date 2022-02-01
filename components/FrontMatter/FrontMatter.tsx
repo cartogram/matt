@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {respondTo} from '../../styles/utils';
+import {respond} from '../../styles/utils';
 import Heading from '../Heading';
 import A from '../A';
 
@@ -15,10 +15,9 @@ const StyledFrontMatter = styled.div<Partial<Props>>`
   padding: ${props =>
     `0 ${props.theme.emSizes[10]} ${props.theme.emSizes[12]}`};
 
-  ${respondTo.md`
+  @media ${respond.md} {
     position: fixed;
-
-    `}
+  }
 `;
 
 export default function FrontMatter({title}: Props) {

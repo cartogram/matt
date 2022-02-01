@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import {PatternLines, PatternWaves} from '@vx/pattern';
+import {PatternLines, PatternWaves} from '@visx/pattern';
 import {withTheme, DefaultTheme} from 'styled-components';
 
 import {makeCircleSvg} from './utilities';

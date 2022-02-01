@@ -1,1 +1,3 @@
-export {default as Content, ContentInner} from './Content';
+import Content from './Content';
+
+export default Content;

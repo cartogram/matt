@@ -1,28 +1,17 @@
-import {css} from 'styled-components';
-
 interface Breakpoint {
   [key: string]: string;
 }
 
-interface RespondTo {
-  [key: string]: (...args: any[]) => any;
-}
-
 export const breakpoints: Breakpoint = {
   xs: '480px',
-  sm: '800px',
+  sm: '1300px',
   md: '1250px',
   lg: '1850px',
 };
 
-export const respondTo: RespondTo = Object.keys(breakpoints).reduce(
-  (accumulator: {[key: string]: (...args: any[]) => any}, label: string) => {
-    accumulator[label] = (...args) => css`
-      @media (min-width: ${breakpoints[label]}) {
-        ${(css as any)(...args)};
-      }
-    `;
-    return accumulator;
-  },
-  {},
-);
+export const respond = {
+  xs: `(min-width: ${breakpoints.xs})`,
+  sm: `(min-width: ${breakpoints.sm})`,
+  md: `(min-width: ${breakpoints.md})`,
+  lg: `(min-width: ${breakpoints.lg})`,
+};

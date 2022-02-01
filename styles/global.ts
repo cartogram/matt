@@ -1,33 +1,28 @@
 import {createGlobalStyle} from 'styled-components';
 
 import theme from './theme';
-import {reset, respondTo} from './utils';
+import {reset, respond} from './utils';
 
 const GlobalStyle = createGlobalStyle`
+
   html,
   body,
   body > div {
-    height: 100%;
-    overflow: hidden;
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: ${theme.fontFamilySans.name};
     font-weight: ${theme.fontFamilySans.weight};
     line-height: 1.4;
-    font-size: 2.4vw
+    font-size: 2em
 
-    ${respondTo.sm`
-      font-size: 2vw
-    `}
+    @media ${respond.md} {
+      font-size: 1.5em;
+    }
 
-    ${respondTo.md`
-      font-size: 1.1vw
-    `}
-
-    ${respondTo.lg`
-      font-size: 22px
-    `}
+    @media ${respond.lg} {
+      font-size: 1.2em;
+    }
   }
 
   *,
@@ -38,7 +33,11 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'lausanna';
-    src: url('/static/fonts/Lausanne-300.otf');
+    src: url('/fonts/Lausanne-300.otf');
+  }
+
+  body {
+    background: ${theme.siteBackground};
   }
 `;
 

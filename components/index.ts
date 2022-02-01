@@ -1,8 +1,8 @@
 export {default as Scene} from './Scene';
 export {default as Heading} from './Heading';
-export {default as Text} from './Text';
+export {default as Text, TextPadding} from './Text';
 export {default as A} from './A';
-export {Content, ContentInner} from './Content';
+export {default as Content} from './Content';
 export {default as List} from './List';
 export {default as Footnote} from './Footnote';
 export {default as Block} from './Block';
@@ -12,3 +12,4 @@ export {default as LoadBar} from './LoadBar';
 export {default as Mast} from './Mast';
 export {default as Meta} from './Meta';
 export {default as FrontMatter} from './FrontMatter';
+export {default as LastFm} from './LastFm';

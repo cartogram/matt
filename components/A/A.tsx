@@ -9,16 +9,21 @@ type Props = {
   as?: string;
   children?: React.ReactNode;
   variant?: 'link' | 'button' | 'large-button';
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 } & LinkProps;
 
 const StyledA = styled.a<{current?: boolean}>`
   cursor: ${({href, current}) => (current || !href ? 'default' : 'pointer')};
   color: ${props => props.theme.primaryColor};
   text-decoration: underline;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
 
   &:hover {
-    text-decoration: ${({current, href}) =>
-      current || !href ? 'underline' : 'none'};
+    text-decoration: ${({current, href, onClick}) =>
+      current || (!onClick && !href) ? 'underline' : 'none'};
   }
 `;
 
@@ -62,7 +67,7 @@ const StyledLargeButton = styled.a`
   }
 `;
 
-function A({external, as, href, children, ...rest}: Props) {
+function A({external, as, href, children, onClick, ...rest}: Props) {
   const variant = rest.variant || 'link';
   const router = useRouter();
   const current = router.asPath === href;
@@ -80,6 +85,14 @@ function A({external, as, href, children, ...rest}: Props) {
       <StyledLargeButton href={href} target="_blank">
         {children}
       </StyledLargeButton>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <StyledA as="button" onClick={onClick}>
+        {children}
+      </StyledA>
     );
   }
 
