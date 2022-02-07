@@ -1,12 +1,23 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable @shopify/react-hooks-strict-return */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @shopify/jsx-no-hardcoded-content */
 /* eslint-disable no-process-env */
-import React, {useEffect} from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import {useRouter} from 'next/router';
 
-import {dates, twoLiner, title, links, tags, posts} from '../content';
+import {
+  dates,
+  formatedDates,
+  twoLiner,
+  title,
+  links,
+  tags,
+  Tag,
+  posts as _posts,
+} from '../content';
 import {
   Text,
-  Heading,
   List,
   A,
   Footnote,
@@ -25,45 +36,138 @@ interface Props {
   };
 }
 
-function Home({artist, runs}: Props) {
-  const formatedDates = dates.map(date => formatDate(date));
+function useFilter(
+  values: string[],
+  key: string,
+): [any[], string | null, (val: string | null) => void] {
   const router = useRouter();
-  const tagItems = tags.map(tag => ({
-    title: tag,
-    query: `tag=${tag}`,
-    onClick: () => router.push(`/?tag=${tag}`),
-    active: router.query.tag === tag,
-  }));
+  const [explicit, setExplicit] = useState<string | null>(null);
+
+  const items = useMemo(() => {
+    return values.map(val => ({
+      title: val,
+      query: `${key}=${val}`,
+      onClick: () => {
+        const active = Object.values(router.query).some(key => key === val);
+
+        router.push(
+          {
+            pathname: '/',
+            query: {
+              date: router.query.date,
+              tag: router.query.tag,
+              [key]: active ? '' : val,
+            },
+          },
+          undefined,
+          {
+            shallow: true,
+          },
+        );
+      },
+      active:
+        explicit === null
+          ? (Array.isArray(router.query[key])
+              ? router.query[key]![0]
+              : router.query[key]) === val
+          : explicit === val,
+      onMouseOut: () => setExplicit(null),
+      onMouseOver: () => setExplicit && setExplicit(val),
+    }));
+  }, [router, values, key, explicit, setExplicit]);
+
+  return [items, explicit, setExplicit];
+}
+
+function Home({artist, runs}: Props) {
+  const [posts, setPosts] = useState(_posts);
+  const [focused, setFocused] = useState<string | null>(null);
+  const [tagItems, explicitTag, setExplicitTag] = useFilter(tags, 'tag');
+  const [dateItems, explicitDate, setExplicitDate] = useFilter(
+    formatedDates,
+    'date',
+  );
+  const router = useRouter();
 
   useEffect(() => {
-    // The counter changed!
-    console.log('The tags changed!', router.query.tag);
-  }, [router.query.tag]);
+    setPosts(
+      _posts.map(post => {
+        const normalizedTagQuery = Array.isArray(router.query.tag)
+          ? router.query.tag[0]
+          : router.query.tag;
+        const tagActive = normalizedTagQuery
+          ? post.tags?.includes(normalizedTagQuery as Tag)
+          : false;
+
+        const normalizedDateQuery = Array.isArray(router.query.date)
+          ? router.query.date[0]
+          : router.query.date;
+        const dateActive = normalizedDateQuery
+          ? formatDate(post.date) === normalizedDateQuery
+          : false;
+
+        function isActive() {
+          if (focused) {
+            if (focused === post.slug) {
+              return true;
+            }
+            return false;
+          }
+
+          if (tagActive || dateActive) {
+            return true;
+          }
+
+          if (
+            (explicitTag && post.tags?.includes(explicitTag as Tag)) ||
+            (explicitDate && formatDate(post.date) === explicitDate)
+          ) {
+            return true;
+          }
+
+          return false;
+        }
+
+        return {
+          ...post,
+          active: isActive(),
+          onMouseOver: () => {
+            setFocused(post.slug);
+            setExplicitDate(formatDate(post.date));
+            setExplicitTag(post?.tags![0]);
+          },
+          onMouseOut: () => {
+            setFocused(null);
+            setExplicitDate(null);
+            setExplicitTag(null);
+          },
+        };
+      }),
+    );
+  }, [
+    focused,
+    router.query.tag,
+    router.query.date,
+    explicitDate,
+    explicitTag,
+    dateItems,
+    setExplicitDate,
+    setExplicitTag,
+  ]);
 
   return (
     <Content>
-      <Row offSet soft>
-        <Block offSet>
-          <Heading>
+      <Row>
+        <Block>
+          <Text>
             <A href="/">
               {title || process.env.NEXT_PUBLIC_NAME || 'Matt Seccafien'}
             </A>
-          </Heading>
+          </Text>
         </Block>
       </Row>
       <Row>
         <Block>
-          <List items={posts} />
-        </Block>
-        <Block stick offSet>
-          <Row>
-            <List small items={tagItems} />
-            <List small items={formatedDates} />
-          </Row>
-        </Block>
-      </Row>
-      <Row offSet>
-        <Block offSet>
           <TextPadding>
             <Text dangerouslySetInnerHTML={{__html: twoLiner}} />
           </TextPadding>
@@ -111,6 +215,21 @@ function Home({artist, runs}: Props) {
             </Footnote>
           </TextPadding>
           <List inline small items={links} />
+        </Block>
+      </Row>
+      <Row offSet>
+        <Block>
+          <List items={posts} />
+        </Block>
+        <Block stick>
+          <Row offSet>
+            <Block auto>
+              <List small items={tagItems} />
+            </Block>
+            <Block auto>
+              <List small right items={dateItems} />
+            </Block>
+          </Row>
         </Block>
       </Row>
     </Content>

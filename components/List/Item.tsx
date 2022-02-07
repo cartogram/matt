@@ -1,37 +1,85 @@
 import React from 'react';
-import styled from 'styled-components';
-import {useMedia} from '@shopify/react-hooks';
+import styled, {keyframes, css} from 'styled-components';
 
 import {respond} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
+import {TextPadding} from '../Text';
 import {formatDate} from '../../utlities/formatDate';
 
-interface Props {
+interface StyledProps {
   active?: boolean;
 }
-const StyledItem = styled.li<Props>`
+
+const linkShake = keyframes`
+0%,to {
+  transform: rotate(1deg)
+}
+
+25% {
+  transform: rotate(0deg)
+}
+
+50% {
+  transform: rotate(-1deg)
+}
+
+75% {
+  transform: rotate(0deg)
+}
+`;
+
+const StyledItem = styled.li<StyledProps>`
   list-style: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-items: baseline;
+  padding-right: 0.25em;
+  position: relative;
+  white-space: nowrap;
 
   > a {
     flex: 1;
     width: 100%;
+  }
 
-    color: ${props =>
-      props.active ? /* props.theme.colors.primary */ 'red' : 'inherit'};
+  span {
+    ${props =>
+      props.active
+        ? css`
+            animation: ${linkShake} 0.225s cubic-bezier(0.1, 0.6, 0.4, 1)
+              infinite;
+          `
+        : ''};
   }
 
   @media ${respond.md} {
+    white-space: normal;
+    > span,
     > a {
       flex: initial;
-      width: auto;
     }
   }
+`;
+
+const StyledMeta = styled.span`
+  margin-top: var(--space-1rem);
+  display: block;
+  @media ${respond.sm} {
+    display: none;
+  }
+`;
+
+const StyledIcon = styled.i`
+  font-style: normal;
+  text-decoration: none;
+  padding: 0 0.25em;
+  position: absolute;
+  left: 0;
+  transform: translate(-100%, 0%);
+  text-align: center;
 `;
 
 interface Item {
@@ -39,58 +87,85 @@ interface Item {
   title: string;
   tags?: string[];
   date?: string;
+  icon?: string;
   label?: string;
   permalink?: string;
   onGoing?: boolean;
-
+  active?: boolean;
+  onMouseOut?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  onMouseOver?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => void;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
-interface Props {
+interface Props extends StyledProps {
   item: Item;
   small?: boolean;
 }
 
 function Item({
   small,
-  active,
-  item: {title, slug, tags, date, permalink, onGoing, label, onClick},
+  item: {
+    title,
+    active,
+    slug,
+    tags,
+    date,
+    permalink,
+    onGoing,
+    label,
+    icon,
+    ...rest
+  },
 }: Props) {
-  const isSmallScreen = useMedia(respond.md);
-
   const formattedDate = date ? formatDate(date, {prefix: '–'}) : '';
   const formattedOngoing = onGoing ? '→Now' : '';
   const formattedTags = tags ? tags : [];
-  const tagsMarkup = isSmallScreen ? null : (
-    <Footnote>
-      {formattedTags.join(', ')}
-      {formattedDate}
-      {formattedOngoing}
-    </Footnote>
+  const tagsMarkup = (
+    <StyledMeta>
+      <Footnote>
+        {formattedTags.join(', ')}
+        {formattedDate}
+        {formattedOngoing}
+      </Footnote>
+    </StyledMeta>
   );
 
   const labelMarkup = label && <Footnote>{label}</Footnote>;
+  const iconMarkup = icon && <StyledIcon>{icon}</StyledIcon>;
   const textMarkup = small ? (
     <Footnote>{title}</Footnote>
   ) : (
     <Heading>{title}</Heading>
   );
 
-  const linkProps = {};
+  let linkMarkup = <A {...rest}>{textMarkup}</A>;
 
-  const linkMarkup = permalink ? (
-    <A external href={permalink}>
+  linkMarkup = permalink ? (
+    <A external href={permalink} {...rest}>
       {textMarkup}
     </A>
   ) : (
-    <A href="/[pid]" as={`/${slug}`} onClick={onClick}>
+    linkMarkup
+  );
+
+  linkMarkup = slug ? (
+    <A href="/[pid]" as={`/${slug}`} {...rest}>
       {textMarkup}
     </A>
+  ) : (
+    linkMarkup
   );
+
+  if (active) {
+    console.log(title);
+  }
   return (
     <StyledItem active={active}>
-      {linkMarkup}
       {tagsMarkup}
+      {iconMarkup}
+      {linkMarkup}
       {labelMarkup}
     </StyledItem>
   );

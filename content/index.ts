@@ -1,3 +1,5 @@
+import {formatDate} from '../utlities/formatDate';
+
 // eslint-disable-next-line no-process-env
 export const title = process.env.NAME;
 export const firstName = 'Matt';
@@ -9,6 +11,7 @@ interface Post {
   title: string;
   tags?: Tag[];
   date: string;
+  icon?: string;
   permalink?: string;
   label?: string;
   onGoing?: boolean;
@@ -18,7 +21,7 @@ interface Post {
   more?: string;
 }
 
-enum Tag {
+export enum Tag {
   Project = 'project',
   Writing = 'writing',
   Owner = 'my thing',
@@ -43,7 +46,8 @@ export const posts: Post[] = [
   {
     slug: 'fondfolio',
     title: 'Fondfolio',
-    tags: [Tag.Project],
+    icon: '☠️',
+    tags: [Tag.Owner],
     date: '2017-04-01',
     onGoing: true,
     content: require(`./fondfolio.md`).default,
@@ -142,3 +146,5 @@ export const dates = posts
     return acc;
   }, [])
   .filter(x => x);
+
+export const formatedDates = dates.map(date => formatDate(date));

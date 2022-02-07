@@ -44,8 +44,7 @@
     "extends": [
       "plugin:@shopify/typescript",
       "plugin:@shopify/react",
-      "plugin:@shopify/prettier",
-      "plugin:@shopify/jest"
+      "plugin:@shopify/prettier"
     ],
     "rules": {
       "no-console": "off",

@@ -4,7 +4,7 @@ interface Breakpoint {
 
 export const breakpoints: Breakpoint = {
   xs: '480px',
-  sm: '1300px',
+  sm: '700px',
   md: '1250px',
   lg: '1850px',
 };

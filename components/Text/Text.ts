@@ -4,7 +4,7 @@ const Text = styled.p`
   font-weight: normal;
   display: block;
   text-indent: ${props => props.theme.emSizes[10]};
-  font-size: ${props => props.theme.fontSizes[1]};
+  font-size: var(--ft-size-medium);
 
   &:first-child {
     text-indent: 0;
@@ -12,7 +12,8 @@ const Text = styled.p`
 `;
 
 export const TextPadding = styled.div`
-  padding-bottom: ${props => props.theme.emSizes[1]};
+  margin-bottom: var(--space-1rem);
+  margin-top: 0;
 `;
 
 export default Text;

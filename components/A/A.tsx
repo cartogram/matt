@@ -3,14 +3,17 @@ import React from 'react';
 import Link, {LinkProps} from 'next/link';
 import {useRouter} from 'next/router';
 
-type Props = {
+type Props = Omit<LinkProps, 'href'> & {
   external?: boolean;
   href?: string;
   as?: string;
   children?: React.ReactNode;
-  variant?: 'link' | 'button' | 'large-button';
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-} & LinkProps;
+  onMouseOver?: (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => void;
+  onMouseOut?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+};
 
 const StyledA = styled.a<{current?: boolean}>`
   cursor: ${({href, current}) => (current || !href ? 'default' : 'pointer')};
@@ -18,7 +21,6 @@ const StyledA = styled.a<{current?: boolean}>`
   text-decoration: underline;
   background: none;
   padding: 0;
-  text-align: left;
   cursor: pointer;
 
   &:hover {
@@ -27,82 +29,21 @@ const StyledA = styled.a<{current?: boolean}>`
   }
 `;
 
-const StyledButton = styled.a<{current?: boolean}>`
-  cursor: ${({current}) => (current ? 'default' : 'pointer')};
-  color: ${props => props.theme.primaryColor};
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: ${({current}) => (current ? 'underline' : 'none')};
-  }
-
-  padding: 4px 16px 1px;
-  border: 2px solid;
-  border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-  background: white;
-`;
-
-const StyledLargeButton = styled.a`
-  border: 4px solid;
-  font-size: ${props => props.theme.fontSizes[1]};
-  display: inline-block;
-  color: ${props => props.theme.primaryColor};
-  text-decoration: none;
-  border-radius: 60px;
-  padding: 8px 80px 4px 40px;
-  position: relative;
-  width: auto;
-
-  span {
-    position: absolute;
-    right: 0;
-    padding: 0;
-    font-size: 140%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-`;
-
-function A({external, as, href, children, onClick, ...rest}: Props) {
-  const variant = rest.variant || 'link';
+function A({external, as, href, children, ...rest}: Props) {
   const router = useRouter();
   const current = router.asPath === href;
 
-  if (variant === 'button') {
+  if (!href) {
     return (
-      <Link as={as} href={href}>
-        <StyledButton current={current}>{children}</StyledButton>
-      </Link>
-    );
-  }
-
-  if (variant === 'large-button') {
-    return (
-      <StyledLargeButton href={href} target="_blank">
-        {children}
-      </StyledLargeButton>
-    );
-  }
-
-  if (onClick) {
-    return (
-      <StyledA as="button" onClick={onClick}>
+      <StyledA as="span" {...rest}>
         {children}
       </StyledA>
     );
   }
 
-  if (!href) {
-    return <StyledA as="span">{children}</StyledA>;
-  }
-
   if (external) {
     return (
-      <StyledA href={href} target="_blank">
+      <StyledA href={href} target="_blank" {...rest}>
         {children}
       </StyledA>
     );
@@ -110,7 +51,7 @@ function A({external, as, href, children, onClick, ...rest}: Props) {
 
   return (
     <Link as={as} href={href}>
-      <StyledA current={current} href={href}>
+      <StyledA current={current} href={href} {...rest}>
         {children}
       </StyledA>
     </Link>
