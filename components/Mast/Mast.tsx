@@ -19,8 +19,8 @@ const StyledMast = styled.div<Partial<MastProps>>`
     position: absolute;
     background: ${props => props.color || 'none'};
     top: 0;
-    left: 0;
-    right: 0;
+    left: -5em;
+    right: -5em;
     display: block;
     bottom: 0;
     transform: translateY(-25%);

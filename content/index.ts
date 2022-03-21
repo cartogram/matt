@@ -5,7 +5,7 @@ export const title = process.env.NAME;
 export const firstName = 'Matt';
 export const lastName = 'Seccafien';
 
-interface Post {
+export interface Post {
   slug: string;
   video?: string;
   title: string;
@@ -28,13 +28,13 @@ export enum Tag {
 }
 
 export const posts: Post[] = [
-  {
-    slug: 'learning-from-incidents',
-    title: 'Learning From Incidents',
-    tags: [Tag.Writing],
-    date: '2020-04-24',
-    content: require(`./rca.md`).default,
-  },
+  // {
+  //   slug: 'learning-from-incidents',
+  //   title: 'Learning From Incidents',
+  //   tags: [Tag.Writing],
+  //   date: '2020-04-24',
+  //   content: require(`./rca.md`).default,
+  // },
   // {
   //   slug: 'resiliency',
   //   title: 'On moving to resiliency',
@@ -44,9 +44,29 @@ export const posts: Post[] = [
   //   color: '#41aeff36',
   // },
   {
+    slug: 'pawzzles',
+    title: 'Distance Over Time',
+    // icon: '🐱',
+    tags: [Tag.Owner],
+    date: '2022-04-01',
+    onGoing: true,
+    content: require(`./distance-over-time.md`).default,
+    color: '#41aeff36',
+  },
+  {
+    slug: 'pawzzles',
+    title: 'Pawzzles',
+    // icon: '🐱',
+    tags: [Tag.Owner],
+    date: '2017-04-01',
+    onGoing: true,
+    content: require(`./pawzzles.md`).default,
+    color: '#41aeff36',
+  },
+  {
     slug: 'fondfolio',
     title: 'Fondfolio',
-    icon: '☠️',
+    // icon: '📖',
     tags: [Tag.Owner],
     date: '2017-04-01',
     onGoing: true,
@@ -67,14 +87,6 @@ export const posts: Post[] = [
   },
 
   {
-    slug: '',
-    title: 'Embracing Constraint with CSS Modules',
-    tags: [Tag.Writing],
-    permalink:
-      'https://medium.com/cartogram/embracing-constraint-with-css-modules-89ba3bbcb95d',
-    date: '2016-09-20',
-  },
-  {
     slug: 'consciously-coupling',
     title: 'Consciously Coupling',
     tags: [Tag.Project],
@@ -83,14 +95,7 @@ export const posts: Post[] = [
     content: require(`./consciously-coupling.md`).default,
     video: 'consciously-coupling.mp4',
   },
-  {
-    slug: '',
-    title: 'Using Arrays as CSS config and Immutable Reverse',
-    tags: [Tag.Writing],
-    permalink:
-      'https://medium.com/@crtogrm/quick-tip-using-arrays-as-css-config-and-immutable-reverse-4bad11d8768',
-    date: '2016-12-22',
-  },
+
   {
     slug: 'lauren-wickware',
 

@@ -9,24 +9,24 @@ import {
   LoadBar,
   Mast,
   FrontMatter,
+  BackButton,
 } from '../components';
-// eslint-disable-next-line @shopify/strict-component-boundaries
-import {Container} from '../components/Scene/components';
 
 interface Props {
   post: any;
 }
 function Post({post}: Props) {
-  const {title, heading, content, color, video} = post || {};
+  const {title, heading, content, color, date, video} = post || {};
 
   const videoSource = video ? `videos/${video}` : '';
 
   const contentMarkup = post ? (
     <Content>
       <Mast color={color} video={videoSource} />
-      <FrontMatter title={title || heading} />
+      <FrontMatter date={date} title={title || heading} />
+      <BackButton />
       <RawHtml>
-        <ReactMarkdown escapeHtml={false} source={content} />
+        <ReactMarkdown>{content}</ReactMarkdown>
       </RawHtml>
       <Meta post={post} />
     </Content>
@@ -34,7 +34,7 @@ function Post({post}: Props) {
     <LoadBar />
   );
 
-  return <Container>{contentMarkup}</Container>;
+  return contentMarkup;
 }
 
 export default Post;

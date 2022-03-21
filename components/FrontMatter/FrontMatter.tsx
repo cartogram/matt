@@ -11,7 +11,7 @@ interface Props {
 
 const StyledFrontMatter = styled.div<Partial<Props>>`
   z-index: 1;
-  top: 10vw;
+  width: 100%;
   padding: ${props =>
     `0 ${props.theme.emSizes[10]} ${props.theme.emSizes[12]}`};
 
@@ -25,9 +25,6 @@ export default function FrontMatter({title}: Props) {
     <StyledFrontMatter>
       <Heading>
         <A href="">{title}</A>
-      </Heading>
-      <Heading>
-        <A href="/">← Back</A>
       </Heading>
     </StyledFrontMatter>
   );
