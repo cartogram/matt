@@ -16,11 +16,11 @@ interface LastFmData {
 export default function LastFm({userName, apiKey}: Props) {
   const [lastFmData, setLastFmData] = useState({});
 
-  console.log(userName, apiKey);
   useEffect(() => {
     if (!userName || !apiKey) {
       throw new Error('userName and apiKey are required to get LastFm data');
     }
+
     fetch(
       `https://ws.audioscrobbler.com/2.0/?method=user.getweeklyartistchart&user=${userName}&api_key=${apiKey}&limit=1&nowplaying=true&format=json`,
     )
@@ -37,7 +37,6 @@ export default function LastFm({userName, apiKey}: Props) {
   }, [apiKey, userName]);
 
   const buildLastFmData = (lastFmData: LastFmData) => {
-    console.log(lastFmData);
     const {error} = lastFmData;
     const artist = lastFmData?.weeklyartistchart?.artist;
 
