@@ -131,14 +131,14 @@ export const links = [
   },
 
   {
-    title: 'Github',
+    title: 'Codes',
     permalink: 'https://github.com/cartogram',
     // label: 'github',
   },
-  // {
-  //   title: 'tel',
-  //   permalink: 'tel:+1',
-  // },
+  {
+    title: 'Grams',
+    permalink: 'https://www.instagram.com/cartogram/',
+  },
 ];
 
 export const tags = [Tag.Writing, Tag.Project, Tag.Owner];

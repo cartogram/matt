@@ -5,7 +5,6 @@ import {respond} from '../../styles/utils';
 import Footnote from '../Footnote';
 import Heading from '../Heading';
 import A from '../A';
-import {TextPadding} from '../Text';
 import {formatDate} from '../../utlities/formatDate';
 
 interface StyledProps {

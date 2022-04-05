@@ -23,13 +23,19 @@ const StyledList = styled.ul<Pick<ListProps, 'inline' | 'right'>>`
 `;
 
 function List({items, right, inline, small}: ListProps) {
-  const itemsMarkup = items.map(item => {
+  const itemsMarkup = items.map((item, index) => {
     if (typeof item === 'string') {
       return (
-        <Item key={item} item={{title: item, active: true}} small={small} />
+        <Item
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${item}--${index}`}
+          item={{title: item, active: true}}
+          small={small}
+        />
       );
     }
-    return <Item small={small} key={item.title} item={item} />;
+    // eslint-disable-next-line react/no-array-index-key
+    return <Item small={small} key={`${item.title}--${index}`} item={item} />;
   });
 
   return (

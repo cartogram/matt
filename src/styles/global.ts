@@ -20,16 +20,13 @@ const GlobalStyle = createGlobalStyle`
     --ft-size-heading: clamp(var(--ft-body-min) * (var(--ft-heading) / var(--ft-body)), var(--ft-body-vw) * (var(--ft-heading) / var(--ft-body)), var(--ft-body-max) * (var(--ft-heading) / var(--ft-body)));
 
     /* Small, 20 on 1440px screens */
-    --ft-small: 20;
+    --ft-small: 22;
     --ft-size-small: clamp(var(--ft-body-min) * (var(--ft-small) / var(--ft-body)), var(--ft-body-vw) * (var(--ft-small) / var(--ft-body)), var(--ft-body-max) * (var(--ft-small) / var(--ft-body)));
 
     /* medium, 26 on 1440px screens */
-    --ft-medium: 26;
+    --ft-medium: 30;
     --ft-size-medium: clamp(var(--ft-body-min) * (var(--ft-medium) / var(--ft-body)), var(--ft-body-vw) * (var(--ft-medium) / var(--ft-body)), var(--ft-body-max) * (var(--ft-medium) / var(--ft-body)));
 
-
-
-    /* Fonts */
 
     /* Colors */
     --accent-color: blue;
@@ -37,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body,
+  #__next ,
   body > div {
     width: 100%;
     -webkit-font-smoothing: antialiased;
@@ -45,17 +43,13 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     --space-1rem: 1em;
+    --space-05rem: 0.6em;
     font-family: ${theme.fontFamilySans.name};
     font-weight: ${theme.fontFamilySans.weight};
     font-size: var(--ft-size-body);
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
-    padding: 0.5em;
-
-    @media ${respond.sm} {
-      padding: 3em 5em;
-    }
   }
 
   *,

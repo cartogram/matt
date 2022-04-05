@@ -11,6 +11,10 @@ interface BlockProps {
 const Block = styled.div<BlockProps>`
   width: 100%;
 
+  @media ${respond.md} {
+    width: 80%;
+  }
+
   ${(props: BlockProps) =>
     props.auto &&
     `

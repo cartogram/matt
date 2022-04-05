@@ -12,7 +12,7 @@ const Text = styled.p`
 `;
 
 export const TextPadding = styled.div`
-  margin-bottom: var(--space-1rem);
+  margin-bottom: var(--space-05rem);
   margin-top: 0;
 `;
 

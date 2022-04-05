@@ -3,18 +3,19 @@ import styled from 'styled-components';
 import {respond} from '../../styles';
 
 interface RowProps {
-  offSet?: boolean;
+  spaced?: boolean;
 }
 
 const Row = styled.div<RowProps>`
   display: flex;
-  justify-content: ${props => (props.offSet ? 'flex-end' : 'flex-start')};
-  margin: 1em 0 3em;
+  justify-content: flex-end;
+  margin: 1em 0 ${props => (props.spaced ? '3em' : '0')};
   width: 100%;
 
   @media ${respond.md} {
     position: relative;
   }
+
   & & {
     padding: 0;
   }
